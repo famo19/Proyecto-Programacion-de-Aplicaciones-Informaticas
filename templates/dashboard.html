@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="main">
+
+        <div class="main__section" id="main_section">
+            <div style="display:none" id="client" name="pages" w3-include-html="{{ url_for('dashboardCliente') }}">
+            </div>
+            <div style="display:block" id="admin" name="pages" w3-include-html="{{ url_for('dashboardAdmin') }}">
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+
+</html>
