@@ -1,8 +1,11 @@
 from flask import Flask, render_template
+from routes.libreria_routes import LibreriaRoutes
 import bcrypt
 
 app = Flask(__name__)
 #app.secret_key = "Bad1secret2key3!+"
+
+LibreriaRoutes.configure_routes(app)
 
 @app.route("/")
 def home():
@@ -59,11 +62,6 @@ def highlights():
     return render_template("highlights.html")
 
 
-@app.route("/libreria")
-def libreria():
-    return render_template("libreria.html")
-
-
 @app.route("/request")
 def request():
     return render_template("request.html")
@@ -72,11 +70,6 @@ def request():
 @app.route("/requestView")
 def requestView():
     return render_template("manejosolicitudes.html")
-
-
-@app.route("/books")
-def books():
-    return render_template("books.html")
 
 
 @app.route("/perfil")

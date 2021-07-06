@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: localhost    Database: veldb
+-- Host: localhost    Database: viajeentrelibros
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -28,17 +28,8 @@ CREATE TABLE `admin` (
   `admin_email` varchar(50) NOT NULL,
   `password` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `admin`
---
-
-LOCK TABLES `admin` WRITE;
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `categories`
@@ -54,17 +45,35 @@ CREATE TABLE `categories` (
   PRIMARY KEY (`id`),
   KEY `idUsuario_idx` (`idUsuario`),
   CONSTRAINT `idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `admin` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `categories`
+-- Table structure for table `libreria`
 --
 
-LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `libreria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `libreria` (
+  `idlibreria` int NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(70) NOT NULL,
+  `sinopsis` varchar(155) NOT NULL,
+  `recomendacion` varchar(155) NOT NULL,
+  `informacionDelAutor` varchar(155) NOT NULL,
+  `contenido` varchar(3000) NOT NULL,
+  `idUsuario` int NOT NULL,
+  `idCategoria` int NOT NULL,
+  `idResumen` int NOT NULL,
+  PRIMARY KEY (`idlibreria`),
+  KEY `idCategoria_idx` (`idCategoria`),
+  KEY `idResumen_idx` (`idResumen`),
+  KEY `idUsuario_idx` (`idUsuario`),
+  CONSTRAINT `idCategoriax` FOREIGN KEY (`idCategoria`) REFERENCES `resumen` (`idCategoria`),
+  CONSTRAINT `idResumenx` FOREIGN KEY (`idResumen`) REFERENCES `resumen` (`id`),
+  CONSTRAINT `idUsuariox` FOREIGN KEY (`idUsuario`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `resumen`
@@ -87,17 +96,8 @@ CREATE TABLE `resumen` (
   KEY `idUsuarios_idx` (`idUsuario`),
   CONSTRAINT `idCategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categories` (`id`),
   CONSTRAINT `idUsuarios` FOREIGN KEY (`idUsuario`) REFERENCES `admin` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `resumen`
---
-
-LOCK TABLES `resumen` WRITE;
-/*!40000 ALTER TABLE `resumen` DISABLE KEYS */;
-/*!40000 ALTER TABLE `resumen` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `user`
@@ -113,21 +113,8 @@ CREATE TABLE `user` (
   `password` varchar(60) NOT NULL,
   `salt` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping routines for database 'veldb'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -138,4 +125,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-30 20:48:00
+-- Dump completed on 2021-07-06 16:50:59

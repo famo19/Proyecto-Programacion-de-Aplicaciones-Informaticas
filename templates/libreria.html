@@ -55,6 +55,15 @@
                     <th style="width: 10%">Título</th>
                     <th>Sinopsis</th>
                 </tr>
+                {% for element in result%}
+                <tr>
+                    {% for value in element.values()%}
+                      <td>{{ value }}</td>
+                    {% endfor %}
+                    <td><a href="">Ir al Libro</a></td>
+                    <td><a href="">Eliminar Libro</a></td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
     </div>
