@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request, redirect, session
 from logic.libreria_logic import LibreriaLogic
 
 class LibreriaRoutes:
@@ -14,7 +14,8 @@ class LibreriaRoutes:
 
         @app.route("/libreria/books")
         def books():
-            return render_template("books.html")
+            titulo = request.query_string
+            return titulo
 
         @app.route("/libreria/deleteBooks")
         def deleteBooks():
