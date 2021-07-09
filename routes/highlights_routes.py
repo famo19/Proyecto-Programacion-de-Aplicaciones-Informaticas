@@ -39,6 +39,14 @@ class HighlightRoutes:
                     copiedText = session.get("highlight")
                     userId = "1"
                     rows = logic.insertHighlight(titulo, copiedText, notas, userId)
-                    return redirect(highlights)
+                    return redirect("/highlights")
                 else:
                     return "Llenar el espacio de Notas"
+        
+        
+        @app.route("/highlights/Delete/<string:txt>")
+        def highlightDelete(txt):
+            userId = "1"
+            logic = HighlightsLogic()
+            text = logic.deleteHighlightByText(txt,userId)
+            return redirect("/highlights")

@@ -2523,7 +2523,6 @@ a:hover {
 #hTable th {
   border: #f2f2f2;
   padding: 8px;
-  width: 100%;
   font-size: medium;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -2550,7 +2549,6 @@ a:hover {
   text-align: center;
   background-color: #2d314d;
   color: white;
-  width: 100%;
 
 }
 

@@ -54,10 +54,19 @@
             <h1> Tus highlights </h1>
             <table id="hTable" style="width:100%" border="0">
                 <tr>
-                    <th>Texto resaltado{{ result }}</th>
-                    <th>Libro al que pertenece</th>
-                    
+                    <th>Libro al que pertenece</th>  
+                    <th style="width:40%">Texto resaltado</th>
+                    <th style="width:40%">Notas</th>   
                 </tr>
+                {% for element in result%}
+                <tr>
+                    <td>{{ element["titulo"] }}</td>
+                    <td>{{ element["texto"] }}</td>
+                    <td>{{ element["notas"] }}</td>
+                    <td><a class="button" onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>
+                    <td><a class="button" onclick="highlightSelectedToDelete(this.id)" id="{{ element["texto"] }}">Eliminar Highlight</a></td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
     </div>

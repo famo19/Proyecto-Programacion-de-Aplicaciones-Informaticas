@@ -55,7 +55,7 @@
             </div>
             <div>
                 <h2> Texto Resaltado: </h2>
-                <p>{{ copiedText }}"</p>
+                <p>{{ copiedText }}</p>
             </div>
             <div>
             <form action="{{ url_for('highlightConfirm') }}" method="post">
@@ -63,12 +63,9 @@
                 <textarea type="text" name="notas" id="notas" value="notas" cols="50" rows="5" style="resize: vertical; font-family: 'Public Sans', sans-serif; font-size: 0.875rem;"></textarea>
                 <br>
                 <input class="button" type="submit" value="Guardar Highlight">
+                <button class="button" style="margin-left: 100px"> Cancelar </button>
             </form>
             </div>          
-    </div>
-
-    <div>
-        <button class="button" style="margin-left: 100px"> Cancelar </button>
     </div>
     <br>
     

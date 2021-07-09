@@ -1,18 +1,22 @@
 // LIBRARY FUNCTIONALITY
 function bookSelected(bookId) {
     var bookTitle = bookId;
-    var bookLink = document.getElementById(bookTitle);
-    bookLink.href = "/libreria/books/"+bookTitle;
+    window.location = "/libreria/books/"+bookTitle;
 }
 
 // HIGHLIGHTS
 
+function highlightSelectedToDelete(highlightId) {
+    var txt = highlightId;
+    window.location = "/highlights/Delete/"+txt;
+}
+
 function getSelectionText() {
-    if (window.getSelection()) {
-        copiedText = window.getSelection().toString();
+    copiedText = window.getSelection().toString();
+    if (copiedText != "") {
         alert(copiedText)
         saveHighlight(copiedText)
-    } else {
+    } else if (copiedText == ""){
         alert("selecciona un texto")
     }
 }
@@ -26,7 +30,7 @@ function saveHighlight(copiedText) {
     if (index >= 0) {
         window.location = "/highlights/"+titulo+"/"+copiedText;
     } else {
-        alert("Solo puedes resaltar texto del contenido de los libros")
+        alert("Solo puedes resaltar texto dentro del contenido de los libros")
     }
 
 
