@@ -1,8 +1,11 @@
+// LIBRARY FUNCTIONALITY
 function bookSelected(bookId) {
     var bookTitle = bookId;
     var bookLink = document.getElementById(bookTitle);
     bookLink.href = "/libreria/books/"+bookTitle;
 }
+
+// HIGHLIGHTS
 
 function getSelectionText() {
     if (window.getSelection()) {
@@ -20,9 +23,8 @@ function saveHighlight(copiedText) {
     var contenido = document.getElementById("contenido");
     var innerHTML = contenido.innerHTML;
     var index = innerHTML.indexOf(copiedText);
-    if (index > 0) {
-        var highlightLink = document.getElementById("highlightSelection");
-        highlightLink.href = "/highlights/"+titulo+"/"+copiedText;
+    if (index >= 0) {
+        window.location = "/highlights/"+titulo+"/"+copiedText;
     } else {
         alert("Solo puedes resaltar texto del contenido de los libros")
     }
@@ -30,7 +32,7 @@ function saveHighlight(copiedText) {
 
 }
 
-function selectHighlightedText() {
+/*function selectHighlightedText() {
     var highArray = []
     if (JSON.parse(localStorage.getItem("HighlightsArray")) !== null) {
         highArray = JSON.parse(localStorage.getItem("HighlightsArray"))
@@ -54,4 +56,4 @@ function highlight(text) {
         innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + text.length) + "</span>" + innerHTML.substring(index + text.length);
         contenido.innerHTML = innerHTML;
     }
-}
+}*/

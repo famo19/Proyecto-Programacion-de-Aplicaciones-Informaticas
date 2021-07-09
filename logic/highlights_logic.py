@@ -4,12 +4,36 @@ class HighlightsLogic(PybaLogic):
     def __init__(self):
         super().__init__()
 
-    def insertHighlight(self, titulo, texto, idUsuario):
+    def insertHighlight(self, titulo, texto, notas, idUsuario):
         database = self.createDatabaseObj()
         sql = (
             "INSERT INTO `highlight` "
-            + "(`id`,`titulo`,`texto`,`idUsuario`) "
-            + f"VALUES(0,'{titulo}','{texto}','{idUsuario}');"
+            + "(`idhighlight`,`titulo`,`texto`,`notas`,`idUsuario`) "
+            + f"VALUES(0,'{titulo}','{texto}','{notas}','{idUsuario}');"
         )
         rows = database.executeNonQueryRows(sql)
         return rows
+
+    def getHighlightByUserId(self, userId):
+        database = self.createDatabaseObj()
+        sql = (
+            "SELECT `texto`"
+            + f"FROM `highlight` where `idUsuario` like '{userId}';"
+        )
+        result = database.executeQuery(sql)
+        if len(result) > 0:
+            return result
+        else:
+            return []
+
+    def getAllHighlightsByUserId(self, userId):
+        database = self.createDatabaseObj()
+        sql = (
+            "SELECT `titulo`,`texto`,`notas`"
+            + f"FROM `highlight` where `idUsuario` like '{userId}';"
+        )
+        result = database.executeQuery(sql)
+        if len(result) > 0:
+            return result
+        else:
+            return []

@@ -4,7 +4,7 @@ from routes.highlights_routes import HighlightRoutes
 import bcrypt
 
 app = Flask(__name__)
-#app.secret_key = "Bad1secret2key3!+"
+app.secret_key = "Bad1secret2key3!+"
 
 LibreriaRoutes.configure_routes(app)
 HighlightRoutes.configure_routes(app)
@@ -58,10 +58,6 @@ def categories():
 def buscar():
     return render_template("busqueda.html")
 
-
-@app.route("/highlights")
-def highlights():
-    return render_template("highlights.html")
 
 
 @app.route("/request")

@@ -46,35 +46,29 @@
     </header>
 
     <br>
-    <h1 id = "tituloH1" style="text-align: center">{{ result["titulo"] }}</h1>
-    <div class="container-book">
-        <h2> Sinopsis: </h2>
-        <p id = "sinopsis">{{ result["sinopsis"] }}</p> 
-    </div>
+    <h1 style="text-align: center;"> Confirma tu nuevo highlight </h1>
+
     <div class = "flex-container-highlights">
             <div>
-                <h2> Categoría: </h2>
-                <p id = "categoria"></p> 
-            </div>
-            <div> 
-                <h2> Recomendación: </h2>
-                <p id = "recomendacion">{{ result["recomendacion"] }}</p> 
+                <h2> Libro al que pertenece: </h2>
+                <p>{{ titulo }}</p>
             </div>
             <div>
-                <h2> Información del autor </h2>
-                <p id = "infoAutor">{{ result["informacionDelAutor"] }}</p> 
+                <h2> Texto Resaltado: </h2>
+                <p>{{ copiedText }}"</p>
             </div>
+            <div>
+            <form action="{{ url_for('highlightConfirm') }}" method="post">
+                <h2> <label for="notas"> Notas: </label> </h2>
+                <textarea type="text" name="notas" id="notas" value="notas" cols="50" rows="5" style="resize: vertical; font-family: 'Public Sans', sans-serif; font-size: 0.875rem;"></textarea>
+                <br>
+                <input class="button" type="submit" value="Guardar Highlight">
+            </form>
+            </div>          
     </div>
-    <br>
-    <div class="container-book">
-        <h2> Contenido: </h2>
-        <p id = "contenido">{{ result["contenido"] }}</p>
-    </div>
-    <br>
-    
+
     <div>
-        <button class="button" onclick="addToLibrary()" style="margin-left: 100px"> Agregar a la librería </button>
-        <button class="button" onclick="getSelectionText()"> Resaltar texto </button>
+        <button class="button" style="margin-left: 100px"> Cancelar </button>
     </div>
     <br>
     
