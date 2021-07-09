@@ -74,7 +74,7 @@
     
     <div>
         <button class="button" onclick="addToLibrary()" style="margin-left: 100px"> Agregar a la librería </button>
-        <button class="button" onclick="getSelectionText()"> Resaltar texto </button>
+        <a class="button" onclick="getSelectionText()" id="highlightSelection"> Resaltar texto </a>
     </div>
     <br>
     
@@ -111,7 +111,7 @@
 
 
     <script src="https://www.w3schools.com/lib/w3.js"></script>
-    <script src="{{url_for('static', filename='script.js')}}"></script>
+    <script src="{{url_for('static', filename='libreria.js')}}"></script>
     
 </body>
 </html>

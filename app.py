@@ -1,11 +1,13 @@
 from flask import Flask, render_template
 from routes.libreria_routes import LibreriaRoutes
+from routes.highlights_routes import HighlightRoutes
 import bcrypt
 
 app = Flask(__name__)
 #app.secret_key = "Bad1secret2key3!+"
 
 LibreriaRoutes.configure_routes(app)
+HighlightRoutes.configure_routes(app)
 
 @app.route("/")
 def home():

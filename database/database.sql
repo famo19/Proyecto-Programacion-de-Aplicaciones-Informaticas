@@ -49,6 +49,24 @@ CREATE TABLE `categories` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `highlight`
+--
+
+DROP TABLE IF EXISTS `highlight`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `highlight` (
+  `idhighlight` int NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(70) NOT NULL,
+  `texto` varchar(3000) NOT NULL,
+  `idUsuario` int NOT NULL,
+  PRIMARY KEY (`idhighlight`),
+  KEY `idUsuariox_idx` (`idUsuario`),
+  CONSTRAINT `idUsuarioh` FOREIGN KEY (`idUsuario`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `libreria`
 --
 
@@ -125,4 +143,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-06 16:50:59
+-- Dump completed on 2021-07-08 21:58:06
