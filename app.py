@@ -1,11 +1,14 @@
 from flask import Flask, render_template
 from routes.libreria_routes import LibreriaRoutes
+from routes.dashboardAdmin_routes import DashboardAdminRoutes
 import bcrypt
 
 app = Flask(__name__)
 #app.secret_key = "Bad1secret2key3!+"
 
 LibreriaRoutes.configure_routes(app)
+DashboardAdminRoutes.configure_routes(app)
+
 
 @app.route("/")
 def home():
@@ -76,13 +79,16 @@ def requestView():
 def perfil():
     return render_template("perfil.html")
 
+
 @app.route("/modify")
 def modify():
     return render_template("modify.html")
-    
+
+
 @app.route("/perfilAdmin")
 def perfilAdmin():
     return render_template("perfilAdmin.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
