@@ -46,10 +46,10 @@
     </header>
 
     <br>
-    <h1 id = "tituloH1" style="text-align: center"></h1>
+    <h1 id = "tituloH1" style="text-align: center">{{ result["titulo"] }}</h1>
     <div class="container-book">
         <h2> Sinopsis: </h2>
-        <p id = "sinopsis"></p> 
+        <p id = "sinopsis">{{ result["sinopsis"] }}</p> 
     </div>
     <div class = "flex-container-highlights">
             <div>
@@ -58,17 +58,17 @@
             </div>
             <div> 
                 <h2> Recomendación: </h2>
-                <p id = "recomendacion"></p> 
+                <p id = "recomendacion">{{ result["recomendacion"] }}</p> 
             </div>
             <div>
                 <h2> Información del autor </h2>
-                <p id = "infoAutor"></p> 
+                <p id = "infoAutor">{{ result["informacionDelAutor"] }}</p> 
             </div>
     </div>
     <br>
     <div class="container-book">
         <h2> Contenido: </h2>
-        <p id = "contenido"></p>
+        <p id = "contenido">{{ result["contenido"] }}</p>
     </div>
     <br>
     

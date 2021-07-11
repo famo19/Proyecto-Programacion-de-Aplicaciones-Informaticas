@@ -1,5 +1,6 @@
-from flask import render_template
+from flask import render_template, request, redirect
 from logic.libreria_logic import LibreriaLogic
+import requests
 
 class LibreriaRoutes:
     @staticmethod
@@ -12,9 +13,11 @@ class LibreriaRoutes:
             """result = libros.values()"""
             return render_template("libreria.html", result=result)
 
-        @app.route("/libreria/books")
-        def books():
-            return render_template("books.html")
+        @app.route("/libreria/books/<string:titulo>")
+        def books(titulo):
+            logic = LibreriaLogic()
+            result = logic.getLibroByTitle(titulo)
+            return render_template("books.html", result=result)
 
         @app.route("/libreria/deleteBooks")
         def deleteBooks():

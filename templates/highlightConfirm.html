@@ -3,21 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highlights</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-    </style>
+    <title id = "titulo"></title>
 </head>
+
 <body>
     <header id="header" class="header">
-    <div class="overlay has-fade">
+      <div class="overlay has-fade">
 
-    </div>
+      </div>
 
-    <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+      <nav class="container container--pall flex flex-jc-sb flex-ai-c">
       <a href="/dashboard" class="header__logo">
         <img src="{{url_for('static', filename='images/logo-Blinkist.png')}}" alt="Blinkist" />
       </a>
@@ -47,31 +45,30 @@
       </div>
     </header>
 
-    </div>
+    <br>
+    <h1 style="text-align: center;"> Confirma tu nuevo highlight </h1>
 
-    <div class="flex-container">
-        <div>
-            <h1> Tus highlights </h1>
-            <table id="hTable" style="width:100%" border="0">
-                <tr>
-                    <th>Libro al que pertenece</th>  
-                    <th style="width:40%">Texto resaltado</th>
-                    <th style="width:40%">Notas</th>   
-                </tr>
-                {% for element in result%}
-                <tr>
-                    <td>{{ element["titulo"] }}</td>
-                    <td>{{ element["texto"] }}</td>
-                    <td>{{ element["notas"] }}</td>
-                    <td><a class="button" onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>
-                    <td><a class="button" onclick="highlightSelectedToDelete(this.id)" id="{{ element["texto"] }}">Eliminar Highlight</a></td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
+    <div class = "flex-container-highlights">
+            <div>
+                <h2> Libro al que pertenece: </h2>
+                <p>{{ titulo }}</p>
+            </div>
+            <div>
+                <h2> Texto Resaltado: </h2>
+                <p>{{ copiedText }}</p>
+            </div>
+            <div>
+            <form action="{{ url_for('highlightConfirm') }}" method="post">
+                <h2> <label for="notas"> Notas: </label> </h2>
+                <textarea type="text" name="notas" id="notas" value="notas" cols="50" rows="5" style="resize: vertical; font-family: 'Public Sans', sans-serif; font-size: 0.875rem;"></textarea>
+                <br>
+                <input class="button" type="submit" value="Guardar Highlight">
+                <button class="button" style="margin-left: 100px"> Cancelar </button>
+            </form>
+            </div>          
     </div>
+    <br>
     
-    <br><br>
 
     <footer id="footer" class="footer">
     <div class="container">
@@ -102,8 +99,10 @@
 
     </div>    
     </footer>
-<script src="https://www.w3schools.com/lib/w3.js"></script>
-<script src="{{url_for('static', filename='script.js')}}"></script>
-</body>
 
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+    
+</body>
 </html>
