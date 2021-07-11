@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, session
 from logic.highlights_logic import HighlightsLogic
+from logic.user_logic import UserLogic
 
 class HighlightRoutes:
     @staticmethod
@@ -7,7 +8,10 @@ class HighlightRoutes:
         @app.route("/highlights")
         def highlights():
             logic = HighlightsLogic()
-            userId = "1"
+            logicUser = UserLogic()
+            username = session['login_user']
+            user = logicUser.getRowByUser(username)
+            userId = user["id"]
             result = logic.getAllHighlightsByUserId(userId)
             """result = libros.values()"""
             return render_template("highlights.html", result=result)
@@ -15,7 +19,10 @@ class HighlightRoutes:
         @app.route("/highlights/<string:titulo>/<string:copiedText>")
         def highlightsSaved(titulo, copiedText):
             logic = HighlightsLogic()
-            userId = "1"
+            logicUser = UserLogic()
+            username = session['login_user']
+            user = logicUser.getRowByUser(username)
+            userId = user["id"]
             text = logic.getHighlightByUserId(userId)
             for element in text:
                 if element["texto"] == copiedText:
@@ -37,7 +44,10 @@ class HighlightRoutes:
                     logic = HighlightsLogic()
                     titulo = session.get("tituloLibroH")
                     copiedText = session.get("highlight")
-                    userId = "1"
+                    logicUser = UserLogic()
+                    username = session['login_user']
+                    user = logicUser.getRowByUser(username)
+                    userId = user["id"]
                     rows = logic.insertHighlight(titulo, copiedText, notas, userId)
                     return redirect("/highlights")
                 else:
@@ -46,7 +56,10 @@ class HighlightRoutes:
         
         @app.route("/highlights/Delete/<string:txt>")
         def highlightDelete(txt):
-            userId = "1"
+            logicUser = UserLogic()
+            username = session['login_user']
+            user = logicUser.getRowByUser(username)
+            userId = user["id"]
             logic = HighlightsLogic()
             text = logic.deleteHighlightByText(txt,userId)
             return redirect("/highlights")
