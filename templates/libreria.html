@@ -60,8 +60,9 @@
                     {% for value in element.values()%}
                       <td>{{ value }}</td>
                     {% endfor %}
-                    <td><a href="">Ir al Libro</a></td>
-                    <td><a href="">Eliminar Libro</a></td>
+                    <td><a onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>
+
+                    <td><a href="" id="{{ element["titulo"] }}">Eliminar Libro</a></td>
                 </tr>
                 {% endfor %}
             </table>
