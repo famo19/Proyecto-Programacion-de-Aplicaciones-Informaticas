@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from routes.libreria_routes import LibreriaRoutes
-from routes.cliente_routes import DashboardClientRoutes
+from routes.dashboard_routes import DashboardRoutes
+from routes.busqueda_routes import BusquedaRoutes
 from routes.highlights_routes import HighlightRoutes
 from routes.logprocess_routes import LogProcessRoutes
 from routes.register_routes import RegisterRoutes
@@ -13,27 +14,20 @@ LibreriaRoutes.configure_routes(app)
 HighlightRoutes.configure_routes(app)
 RegisterRoutes.configure_routes(app)
 LogProcessRoutes.configure_routes(app)
-
-DashboardClientRoutes.configure_routes(app)
+DashboardRoutes.configure_routes(app)
+BusquedaRoutes.configure_routes(app)
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
-@app.route("/dashboard_cliente")
-def dashboardCliente():
-    return render_template("dashboard_cliente.html")
 
 
 @app.route("/dashboard_admin")
 def dashboardAdmin():
     return render_template("dashboard_admin.html")
 
-
-@app.route("/dashboard")
-def dashboard():
-    return render_template("dashboard.html")
 
 
 @app.route("/usuarios")
@@ -51,9 +45,6 @@ def categories():
     return render_template("categories.html")
 
 
-@app.route("/buscar")
-def buscar():
-    return render_template("busqueda.html")
 
 
 
