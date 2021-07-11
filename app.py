@@ -1,15 +1,6 @@
 from flask import Flask, render_template
 from routes.libreria_routes import LibreriaRoutes
-<<<<<<< HEAD
 from routes.highlights_routes import HighlightRoutes
-import bcrypt
-
-app = Flask(__name__)
-app.secret_key = "Bad1secret2key3!+"
-
-LibreriaRoutes.configure_routes(app)
-HighlightRoutes.configure_routes(app)
-=======
 from routes.logprocess_routes import LogProcessRoutes
 from routes.register_routes import RegisterRoutes
 import bcrypt
@@ -18,9 +9,9 @@ app = Flask(__name__)
 app.secret_key = "1secret2key3!+"
 
 LibreriaRoutes.configure_routes(app)
+HighlightRoutes.configure_routes(app)
 RegisterRoutes.configure_routes(app)
 LogProcessRoutes.configure_routes(app)
->>>>>>> main
 
 @app.route("/")
 def home():
