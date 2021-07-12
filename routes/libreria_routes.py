@@ -1,5 +1,6 @@
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, session
 from logic.libreria_logic import LibreriaLogic
+from logic.user_logic import UserLogic
 import requests
 
 class LibreriaRoutes:
@@ -8,7 +9,10 @@ class LibreriaRoutes:
         @app.route("/libreria")
         def libreria():
             logic = LibreriaLogic()
-            userId = "1"
+            logicUser = UserLogic()
+            username = session['login_user']
+            user = logicUser.getRowByUser(username)
+            userId = user["id"]
             result = logic.getLibroByUserId(userId)
             """result = libros.values()"""
             return render_template("libreria.html", result=result)
