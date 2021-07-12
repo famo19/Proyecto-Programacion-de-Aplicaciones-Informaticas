@@ -4,10 +4,10 @@ class BusquedaLogic(PybaLogic):
     def __init__(self):
         super().__init__()
 
-    def getResumenByTitle(self, titulo):
+    def getResumenByTitle(self,titulo):
         database = self.createDatabaseObj()
         sql = (
-            "SELECT `titulo`, `sinopsis`, `recomendacion`, `informacionDelAutor`, `contenido`"
+            "SELECT `titulo`, `sinopsis`, `recomendación`, `informacionDelAutor`, `contenido`"
             + f"FROM `resumen` where `titulo` like '{titulo}';"
         )
         result = database.executeQuery(sql)

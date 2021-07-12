@@ -9,7 +9,7 @@ class BusquedaRoutes:
             if request.method == "GET":
                 return render_template("busqueda.html")
             elif request.method == "POST":
-                logic = BusquedaLogic
+                logic = BusquedaLogic()
                 selectedResumen = request.form["titulo"]
                 result = logic.getResumenByTitle(selectedResumen)
                 session["titulo"] = selectedResumen

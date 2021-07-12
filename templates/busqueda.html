@@ -58,7 +58,7 @@
     <div class="flex-container-buscar">
         <div>
             <form action="{{ url_for('buscar') }}" method="post">
-                <h2> <label for="buscar"> Buscar por nombre: </label> </h2>
+                <h2> <label for="titulo"> Buscar por nombre: </label> </h2>
                 <input type="text" name="titulo" id="titulo" value="titulo" class="inputSearch" style="width: 80%; margin-left: 5px;">
                 <br>
                 <input class="button" type="submit" value="Buscar">
@@ -77,7 +77,7 @@
         </div>
     </div>
 
-    <h1 style = "text-align: center;">Resultados{{ result }}</h1>
+    <h1 style = "text-align: center;">Resultados</h1>
     <div class="flex-container-buscar">
         <br>
         <table id="busquedaTable" style="width:100%">
@@ -89,6 +89,17 @@
                 <th>Recomendacion</th>
                 <th>Informacion del autor</th>
             </tr>
+            {% for element in result%}
+                <tr>
+                    <td></td>
+                    <td>{{ element["titulo"] }}</td>
+                    <td>{{ element["sinopsis"] }}</td>
+                    <td></td>
+                    <td>{{ element["recomendación"] }}</td>
+                    <td>{{ element["informacionDelAutor"] }}</td>
+                    <td><a class="button" onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>
+                </tr>
+            {% endfor %}
         </table>
     </div>
     <br>
