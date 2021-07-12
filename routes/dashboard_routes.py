@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, session
 import requests
 from logic.user_logic import UserLogic
 
@@ -8,10 +8,9 @@ class DashboardRoutes:
     def configure_routes(app):
         @app.route("/dashboard")
         def dashboard():
-            usuario = "cliente"
-            if usuario == "cliente":
+            if session["userType"] == "cliente":
                 return redirect("/dashboard_cliente")
-            elif usuario == "admin":
+            elif session["userType"] == "admin":
                 return redirect("/dashboard_admin")
         @app.route("/dashboard_cliente")
         def dashboard_cliente():

@@ -1,6 +1,7 @@
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, session
 import requests
 from logic.perfil_logic import PerfilLogic
+from logic.user_logic import UserLogic
 
 
 class PerfilRoutes:
@@ -15,5 +16,9 @@ class PerfilRoutes:
                 selectedNombre = request.form["nombre"]
                 selectedEdad = request.form["edad"]
                 selectedPais = request.form["pais"]
-                result = logic.insertPerfil(selectedNombre, selectedEdad, selectedPais, "1")
-                return selectedNombre #render_template("perfil.html")
+                logicUser = UserLogic()
+                username = session['login_user']
+                user = logicUser.getRowByUser(username)
+                userId = user["id"]
+                result = logic.insertPerfil(selectedNombre, selectedEdad, selectedPais, userId)
+                return render_template("perfil.html")
