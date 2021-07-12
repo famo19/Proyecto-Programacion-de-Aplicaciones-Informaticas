@@ -29,6 +29,7 @@ class LogProcessRoutes:
                     if hashPassword == dbPassword:
                         # se valido la password, se puede crear sesion y pasar al dashboard
                         session["userType"] = "cliente"
+                        session["login_user"] = username
                         session["loggedIn"] = True
                         return redirect("/dashboard")
                     else:
@@ -39,6 +40,7 @@ class LogProcessRoutes:
                     if password == dbPassword:
                         # se valido la password, se puede crear sesion y pasar al dashboard
                         session["userType"] = "admin"
+                        session["login_admin"] = username
                         session["loggedIn"] = True
                         return redirect("/dashboard")
                     else:
