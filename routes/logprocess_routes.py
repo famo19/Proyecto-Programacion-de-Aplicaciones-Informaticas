@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, session
 from logic.user_logic import UserLogic
+from logic.admin_logic import AdminLogic
 import bcrypt
 
 
@@ -12,9 +13,11 @@ class LogProcessRoutes:
                 return render_template("login.html")
             elif request.method == "POST":
                 logic = UserLogic()
+                logicAdmin = AdminLogic()
                 username = request.form["user"]
                 password = request.form["password"]
                 userDict = logic.getRowByUser(username)
+                adminDict = logicAdmin.getRowByAdmin(username)
 
                 # validar si userDict no es vacio
                 if len(userDict) != 0:
@@ -25,7 +28,17 @@ class LogProcessRoutes:
                     dbPassword = userDict["password"].encode("utf-8")
                     if hashPassword == dbPassword:
                         # se valido la password, se puede crear sesion y pasar al dashboard
-                        session["login_user"] = username
+                        session["userType"] = "cliente"
+                        session["loggedIn"] = True
+                        return redirect("/dashboard")
+                    else:
+                        return redirect("login")
+                elif len(adminDict) != 0:
+                    strPassword = password
+                    dbPassword = adminDict["password"]
+                    if password == dbPassword:
+                        # se valido la password, se puede crear sesion y pasar al dashboard
+                        session["userType"] = "admin"
                         session["loggedIn"] = True
                         return redirect("/dashboard")
                     else:
