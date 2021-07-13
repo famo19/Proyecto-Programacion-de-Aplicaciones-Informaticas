@@ -1,8 +1,11 @@
 from flask import Flask, render_template
 from routes.libreria_routes import LibreriaRoutes
+from routes.dashboard_routes import DashboardRoutes
+from routes.busqueda_routes import BusquedaRoutes
 from routes.highlights_routes import HighlightRoutes
 from routes.logprocess_routes import LogProcessRoutes
 from routes.register_routes import RegisterRoutes
+from routes.perfil_routes import PerfilRoutes
 import bcrypt
 
 app = Flask(__name__)
@@ -12,25 +15,13 @@ LibreriaRoutes.configure_routes(app)
 HighlightRoutes.configure_routes(app)
 RegisterRoutes.configure_routes(app)
 LogProcessRoutes.configure_routes(app)
+DashboardRoutes.configure_routes(app)
+BusquedaRoutes.configure_routes(app)
+PerfilRoutes.configure_routes(app)
 
 @app.route("/")
 def home():
     return render_template("index.html")
-
-
-@app.route("/dashboard_cliente")
-def dashboardCliente():
-    return render_template("dashboard_cliente.html")
-
-
-@app.route("/dashboard_admin")
-def dashboardAdmin():
-    return render_template("dashboard_admin.html")
-
-
-@app.route("/dashboard")
-def dashboard():
-    return render_template("dashboard.html")
 
 
 @app.route("/usuarios")
@@ -48,9 +39,6 @@ def categories():
     return render_template("categories.html")
 
 
-@app.route("/buscar")
-def buscar():
-    return render_template("busqueda.html")
 
 
 
@@ -62,11 +50,6 @@ def request():
 @app.route("/requestView")
 def requestView():
     return render_template("manejosolicitudes.html")
-
-
-@app.route("/perfil")
-def perfil():
-    return render_template("perfil.html")
 
 @app.route("/modify")
 def modify():
