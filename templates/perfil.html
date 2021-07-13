@@ -60,30 +60,22 @@
         <span class="circle one"></span>
         <span class="circle two"></span>
 
-        <form autocomplete="off">
             <h3 class="title">Datos</h3>
-            <div class="input-container">
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="input">
-                <span>Nombre</span>
-            </div>
-            <div class="input-container">
-                <label for="correo">Correo</label>
-                <input type="email" name="correo" id="correo" class="input">
-                <span>Correo</span>
-            </div>
-            <div class="input-container">
-                <label for="edad">Edad</label>
-                <input type="number" name="edad" id="edad" class="input">
-                <span>Edad</span>
-            </div>
-            <div class="input-container">
-                <label for="pais">Pais</label>
-                <input type="text" name="pais" id="pais" class="input">
-                <span>Pais</span>
-            </div>
-            <button class="button" href="{{ url_for('perfil') }}" onclick="modifyProfile()" style=""> Guardar </button>
-        </form>
+            <form action="{{ url_for('perfil') }}" method="post">
+                <div class="input-container">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" value="nombre" class="input">
+                </div>
+                <div class="input-container">
+                    <label for="edad">Edad</label>
+                    <input type="number" name="edad" id="edad" value="edad" class="input">
+                </div>
+                <div class="input-container">
+                    <label for="pais">Pais</label>
+                    <input type="text" name="pais" id="pais" value="pais" class="input">
+                </div>
+                <input class="button" type="submit" value="Guardar">
+            </form>      
     </div>
 
     <div class="contact-form">

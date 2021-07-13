@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
 -- Host: localhost    Database: viajeentrelibros
 -- ------------------------------------------------------
--- Server version	8.0.20
+-- Server version	8.0.25
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -95,6 +95,25 @@ CREATE TABLE `libreria` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `perfil`
+--
+
+DROP TABLE IF EXISTS `perfil`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `perfil` (
+  `idperfil` int NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `edad` int NOT NULL,
+  `pais` varchar(45) NOT NULL,
+  `iduser` int NOT NULL,
+  PRIMARY KEY (`idperfil`),
+  KEY `iduserx_idx` (`iduser`),
+  CONSTRAINT `iduserx` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `resumen`
 --
 
@@ -144,4 +163,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-11 11:33:03
+-- Dump completed on 2021-07-11 22:57:09
