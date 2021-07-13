@@ -51,22 +51,36 @@
     <div id="categoriasdiv">
         <h1>Agregar categoría</h1>
         <p>Escriba el nombre de la nueva categoría</p>
-        <input type="text" name="cat" id="cat" placeholder="Escriba aquí">
-        <button onclick="registerNewCat()" id="cat-button">Agregar</button>
+        <form action="{{ url_for('createCat') }}" method="post">
+            <input type="text" name="cat" id="cat" placeholder="Escriba aquí">
+            <input type="submit" value="Enviar">
+        </form>
+
+        <a href="{{ url_for('createCat') }}">-Actualizar</a><br>
+        <a href="{{ url_for('dashboard') }}">-Dashboard</a><br>
+        <a href="{{ url_for('deleteCat') }}">-Eliminar categoría</a>
+        <br>
 
         <div>
             <br><br>
             <table id="catTable" style="width:50%" border="1">
                 <tr>
-                    <th>Usuario</th>
+                    <th>ID</th>
                     <th>Categorías</th>
-                    <th>Acción</th>
+                    <th>Usuario</th>
+
                 </tr>
+                {% for categoria in categorias %}
+                <tr>
+                    <th>{{categoria["id"]}}</th>
+                    <th>{{categoria["nombre"]}}</th>
+                    <th>{{categoria["idUsuario"]}}</th>
+                </tr>
+                {% endfor %}
             </table>
         </div>
 
-
-        <br>
+        
     </div>
 
     <footer id="footer" class="footer">

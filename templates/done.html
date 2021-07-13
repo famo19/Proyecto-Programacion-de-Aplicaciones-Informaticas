@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Hecho</title>
+</head>
+
+<body>
+    <h1>Se {{accion}} exitosamente {{rows}} fila(s)</h1><br>
+    <a href="{{ url_for('createCat') }}">Regresar</a><br>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a><br>
+
+</body>
+
+</html>
