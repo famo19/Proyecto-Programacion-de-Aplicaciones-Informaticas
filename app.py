@@ -6,6 +6,7 @@ from routes.highlights_routes import HighlightRoutes
 from routes.logprocess_routes import LogProcessRoutes
 from routes.register_routes import RegisterRoutes
 from routes.perfil_routes import PerfilRoutes
+from routes.categorias_routes import CategoriasRoutes
 import bcrypt
 
 app = Flask(__name__)
@@ -18,6 +19,8 @@ LogProcessRoutes.configure_routes(app)
 DashboardRoutes.configure_routes(app)
 BusquedaRoutes.configure_routes(app)
 PerfilRoutes.configure_routes(app)
+CategoriasRoutes.configure_routes(app)
+
 
 @app.route("/")
 def home():
@@ -39,9 +42,6 @@ def categories():
     return render_template("categories.html")
 
 
-
-
-
 @app.route("/request")
 def request():
     return render_template("request.html")
@@ -51,13 +51,16 @@ def request():
 def requestView():
     return render_template("manejosolicitudes.html")
 
+
 @app.route("/modify")
 def modify():
     return render_template("modify.html")
-    
+
+
 @app.route("/perfilAdmin")
 def perfilAdmin():
     return render_template("perfilAdmin.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

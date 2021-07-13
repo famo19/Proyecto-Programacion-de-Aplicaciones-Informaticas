@@ -12,9 +12,11 @@ class DashboardRoutes:
                 return redirect("/dashboard_cliente")
             elif session["userType"] == "admin":
                 return redirect("/dashboard_admin")
+
         @app.route("/dashboard_cliente")
         def dashboard_cliente():
-            return render_template("dashboard_cliente.html") 
+            return render_template("dashboard_cliente.html")
+
         @app.route("/dashboard_admin")
         def dashboard_admin():
-            return render_template("dashboard_admin.html")    
+            return render_template("dashboard_admin.html")
