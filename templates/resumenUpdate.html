@@ -52,72 +52,44 @@
     <p>Bienvenido, <b id="user"></b></p>
     <div id="resumen">
         <br><br>
-        <a href="{{ url_for('createRes') }}">-Actualizar</a>
-        <a href="{{ url_for('deleteRes') }}">-Eliminar Resumen</a>
+        <a href="{{ url_for('updateRes') }}">-Actualizar</a>
 
         <h1>Agregar resumen</h1>
-        <form action="{{ url_for('createRes') }}" method="post">
+        <form action="{{ url_for('updateRes') }}" method="post">
             <br><br>
             <label for=""><b>Título</b></label>
-            <input type="text" name="title" id="title" placeholder="Inserte el título">
+            <input type="text" name="title" id="title" placeholder="Inserte el título" value='{{resumen["titulo"]}}'>
             <br><br>
             <label for=""><b>Sinopsis</b></label>
-            <input type="text" name="sinop" id="sinop" placeholder="Inserte la sinopsis">
+            <input type="text" name="sinop" id="sinop" placeholder="Inserte la sinopsis"
+                value='{{resumen["sinopsis"]}}'>
             <br><br>
             <label for=""><b>Categoría</b></label>
             <select name="cat" id="cat" placeholder="Inserte la categoría">
+
                 {% for categoria in categorias  %}
-                <option value='{{categoria["id"]}}'>{{categoria["nombre"]}}</option>
+                <option value='{{categoria["id"]}}'
+                    {% if resumen["idCategoria"]==categoria["id"] %}selected{% endif %}>{{categoria["nombre"]}}
+                </option>
                 {% endfor %}
             </select>
             <br><br>
             <label for=""><b>Recomendación</b></label>
-            <input type="int" name="recom" id="recom" placeholder="Inserte la recomendación">
+            <input type="int" name="recom" id="recom" placeholder="Inserte la recomendación"
+                value='{{resumen["recomendación"]}}'>
             <br><br>
             <label for=""><b>Información del autor</b></label>
-            <input type="text" name="infAutor" id="infAutor" placeholder="Inserte la información de autor">
+            <input type="text" name="infAutor" id="infAutor" placeholder="Inserte la información de autor"
+                value='{{resumen["informacionDelAutor"]}}'>
             <br><br>
             <label for=""><b>Contenido</b></label><br>
             <textarea name="content" id="content" cols="50" rows="5" style="resize: vertical;"
-                placeholder="Inserte el contenido del libro"></textarea>
+                placeholder="Inserte el contenido del libro">{{resumen["contenido"]}}</textarea>
             <br><br>
+            <input type="hidden" name="idResu" id="idResu" value='{{resumen["id"]}}'>
             <input type="submit" value="Enviar">
         </form>
         <br><br>
-        <!--<button onclick="registerNewResume()" id="resumen-button">Agregar</button>-->
-
-
-
-        <br><br>
-        <table id="resumeTable" style="width:98%" border="1">
-            <tr>
-                <th style="width: 60%;">Usuario</th>
-                <th>Título</th>
-                <th>Sinopsis</th>
-                <th>Categoría</th>
-                <th>Recomendación</th>
-                <th>Información del autor</th>
-                <th style="width: 100%;">Contenido</th>
-                <th></th>
-            </tr>
-            {% for resumen in resumenes %}
-            <tr>
-                <td style="width: 60%;">{{resumen["idUsuario"]}}</td>
-                <td>{{resumen["titulo"]}}</td>
-                <td>{{resumen["sinopsis"]}}</td>
-                <td>{{resumen["idCategoria"]}}</td>
-                <td>{{resumen["recomendación"]}}</td>
-                <td>{{resumen["informacionDelAutor"]}}</td>
-                <td style="width: 100%;">{{resumen["contenido"]}}</td>
-                <td>
-                    <form action="{{ url_for('updateRes') }}" method="get">
-                        <input type="hidden" name="idRes" id="idRes" value='{{resumen["id"]}}'>
-                        <input type="submit" value="Actualizar">
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
 
         <br>
     </div>

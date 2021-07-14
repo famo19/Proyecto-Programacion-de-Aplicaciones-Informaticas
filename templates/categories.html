@@ -22,8 +22,8 @@
             </a>
 
             <div class="header__links hide-for-mobile">
-                <a href="{{ url_for('categories') }}">Categorías</a>
-                <a href="{{ url_for('resumen') }}">Resumenes</a>
+                <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
                 <a href="{{ url_for('usuarios') }}">Usuarios</a>
                 <a href="{{ url_for('requestView') }}">Solicitudes</a>
             </div>
@@ -39,8 +39,8 @@
                     <span>Menu</span>
                 </a>
                 <ul class="menu">
-                    <li><a class="menuLink" href="{{ url_for('categories') }}">Categorías</a></li>
-                    <li><a class="menuLink" href="{{ url_for('resumen') }}">Resumenes</a></li>
+                    <li><a class="menuLink" href="{{ url_for('createCat') }}">Categorías</a></li>
+                    <li><a class="menuLink" href="{{ url_for('createRes') }}">Resumenes</a></li>
                     <li><a class="menuLink" href="{{ url_for('usuarios') }}">Usuarios</a></li>
                     <li><a class="menuLink" href="{{ url_for('requestView') }}">Solicitudes</a></li>
                     <li><a class="menuLink" href="{{ url_for('login') }}" onclick="logOut()">Cerrar sesión</a></li>
@@ -56,7 +56,6 @@
             <input type="submit" value="Enviar">
         </form>
 
-        <a href="{{ url_for('createCat') }}">-Actualizar</a><br>
         <a href="{{ url_for('dashboard') }}">-Dashboard</a><br>
         <a href="{{ url_for('deleteCat') }}">-Eliminar categoría</a>
         <br>
@@ -72,15 +71,15 @@
                 </tr>
                 {% for categoria in categorias %}
                 <tr>
-                    <th>{{categoria["id"]}}</th>
-                    <th>{{categoria["nombre"]}}</th>
-                    <th>{{categoria["idUsuario"]}}</th>
+                    <td>{{categoria["id"]}}</td>
+                    <td>{{categoria["nombre"]}}</td>
+                    <td>{{categoria["idUsuario"]}}</td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
 
-        
+
     </div>
 
     <footer id="footer" class="footer">
@@ -101,8 +100,8 @@
             </div>
 
             <div class="footer__links colh1">
-                <a href="{{ url_for('categories') }}">Categorías</a>
-                <a href="{{ url_for('resumen') }}">Resumenes</a>
+                <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
                 <a href="{{ url_for('usuarios') }}">Usuarios</a>
                 <a href="{{ url_for('requestView') }}">Solicitudes</a>
             </div>
