@@ -11,7 +11,7 @@ class ResumenLogic(PybaLogic):
         sql = (
             "INSERT INTO `viajeentrelibros`.`resumen` "
             + "(`id`,`titulo`,`sinopsis`,`recomendación`,`informacionDelAutor`,`contenido`,`idUsuario`,`idCategoria`) "
-            + f"VALUES(0,'{titulo}','{sinopsis}',{recomendacion},'{informacionDelAutor}','{contenido}',{idUsuario},{idCategoria});"
+            + f"VALUES(0,'{titulo}','{sinopsis}','{recomendacion}','{informacionDelAutor}','{contenido}',{idUsuario},{idCategoria});"
         )
         rows = database.executeNonQueryRows(sql)
         return rows

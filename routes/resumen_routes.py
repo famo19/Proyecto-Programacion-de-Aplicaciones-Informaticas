@@ -23,7 +23,7 @@ class ResumenRoutes:
                     # Form y datos de bd
                     titulo = request.form["title"]
                     sinopsis = request.form["sinop"]
-                    recomendacion = int(request.form["recom"])
+                    recomendacion = request.form["recom"]
                     infoAutor = request.form["infAutor"]
                     contenido = request.form["content"]
                     adminDict = adminLogic.getRowByAdmin(
@@ -66,7 +66,7 @@ class ResumenRoutes:
                 # Obtener datos del form
                 titulo = request.form["title"]
                 sinopsis = request.form["sinop"]
-                recomendacion = int(request.form["recom"])
+                recomendacion = request.form["recom"]
                 infoAutor = request.form["infAutor"]
                 contenido = request.form["content"]
                 adminDict = adminLogic.getRowByAdmin(
