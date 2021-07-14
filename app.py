@@ -39,11 +39,6 @@ def resumen():
     return render_template("resumen.html")
 
 
-@app.route("/categories")
-def categories():
-    return render_template("categories.html")
-
-
 @app.route("/request")
 def request():
     return render_template("request.html")

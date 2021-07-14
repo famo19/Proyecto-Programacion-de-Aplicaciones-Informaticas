@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
-    <title>Categorías</title>
+    <title>Resumen</title>
 </head>
 
 <body>
+
     <header id="header" class="header">
         <div class="overlay has-fade">
 
@@ -47,40 +48,50 @@
                 </ul>
             </div>
     </header>
+    <br>
+    <p>Bienvenido, <b id="user"></b></p>
+    <div id="resumen">
+        <br><br>
+        <a href="{{ url_for('updateRes') }}">-Actualizar</a>
 
-    <div id="categoriasdiv">
-        <h1>Agregar categoría</h1>
-        <p>Escriba el nombre de la nueva categoría</p>
-        <form action="{{ url_for('createCat') }}" method="post">
-            <input type="text" name="cat" id="cat" placeholder="Escriba aquí">
+        <h1>Agregar resumen</h1>
+        <form action="{{ url_for('updateRes') }}" method="post">
+            <br><br>
+            <label for=""><b>Título</b></label>
+            <input type="text" name="title" id="title" placeholder="Inserte el título" value='{{resumen["titulo"]}}'>
+            <br><br>
+            <label for=""><b>Sinopsis</b></label>
+            <input type="text" name="sinop" id="sinop" placeholder="Inserte la sinopsis"
+                value='{{resumen["sinopsis"]}}'>
+            <br><br>
+            <label for=""><b>Categoría</b></label>
+            <select name="cat" id="cat" placeholder="Inserte la categoría">
+
+                {% for categoria in categorias  %}
+                <option value='{{categoria["id"]}}'
+                    {% if resumen["idCategoria"]==categoria["id"] %}selected{% endif %}>{{categoria["nombre"]}}
+                </option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <label for=""><b>Recomendación</b></label>
+            <input type="int" name="recom" id="recom" placeholder="Inserte la recomendación"
+                value='{{resumen["recomendación"]}}'>
+            <br><br>
+            <label for=""><b>Información del autor</b></label>
+            <input type="text" name="infAutor" id="infAutor" placeholder="Inserte la información de autor"
+                value='{{resumen["informacionDelAutor"]}}'>
+            <br><br>
+            <label for=""><b>Contenido</b></label><br>
+            <textarea name="content" id="content" cols="50" rows="5" style="resize: vertical;"
+                placeholder="Inserte el contenido del libro">{{resumen["contenido"]}}</textarea>
+            <br><br>
+            <input type="hidden" name="idResu" id="idResu" value='{{resumen["id"]}}'>
             <input type="submit" value="Enviar">
         </form>
+        <br><br>
 
-        <a href="{{ url_for('createCat') }}">-Actualizar</a><br>
-        <a href="{{ url_for('dashboard') }}">-Dashboard</a><br>
-        <a href="{{ url_for('deleteCat') }}">-Eliminar categoría</a>
         <br>
-
-        <div>
-            <br><br>
-            <table id="catTable" style="width:50%" border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>Categorías</th>
-                    <th>Usuario</th>
-
-                </tr>
-                {% for categoria in categorias %}
-                <tr>
-                    <td>{{categoria["id"]}}</td>
-                    <td>{{categoria["nombre"]}}</td>
-                    <td>{{categoria["idUsuario"]}}</td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
-
-
     </div>
 
     <footer id="footer" class="footer">
@@ -118,9 +129,9 @@
         </div>
     </footer>
 
+
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <script src="{{url_for('static', filename='script.js')}}"></script>
-
 </body>
 
 </html>

@@ -17,11 +17,11 @@ class ResumenLogic(PybaLogic):
         return rows
 
     # INSERTAR RESUMEN
-    def updateRes(self, titulo, sinopsis, recomendacion, informacionDelAutor, contenido, idUsuario, idCategoria):
+    def updateRes(self, titulo, sinopsis, recomendacion, informacionDelAutor, contenido, idUsuario, idCategoria, id):
         database = self.createDatabaseObj()
         sql = (
             "UPDATE `viajeentrelibros`.`resumen` SET "
-            + f"`titulo` = '{titulo}',`sinopsis` = '{sinopsis}',`recomendación` = '{recomendacion}',`informacionDelAutor` = '{informacionDelAutor}',`contenido` = '{contenido}',`idUsuario` = {idUsuario },`idCategoria` = {idCategoria};"
+            + f"`titulo` = '{titulo}',`sinopsis` = '{sinopsis}',`recomendación` = '{recomendacion}',`informacionDelAutor` = '{informacionDelAutor}',`contenido` = '{contenido}',`idUsuario` = {idUsuario },`idCategoria` = {idCategoria} WHERE `id` = {id};"
         )
         rows = database.executeNonQueryRows(sql)
         return rows
@@ -35,6 +35,18 @@ class ResumenLogic(PybaLogic):
         result = database.executeQuery(sql)
         if len(result) > 0:
             return result
+        else:
+            return []
+
+    # OBTENER SOLO UN RESUMEN
+    def getResumenById(self, id):
+        database = self.createDatabaseObj()
+        sql = (
+            f"SELECT * FROM viajeentrelibros.resumen WHERE id={id};"
+        )
+        result = database.executeQuery(sql)
+        if len(result) > 0:
+            return result[0]
         else:
             return []
 

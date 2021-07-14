@@ -54,13 +54,28 @@ class ResumenRoutes:
         @ app.route("/resumen/update", methods=["GET", "POST"])
         def updateRes():
             if request.method == "GET":
-                return render_template("resumenDelete.html")
+                resLogic = ResumenLogic()
+                catLogic = CategoriasLogic()
+                resumen = resLogic.getResumenById(request.args["idRes"])
+                allCategorias = catLogic.getAllCats()
+                return render_template("resumenUpdate.html", resumen=resumen, categorias=allCategorias)
             elif request.method == "POST":
                 # Iniciar logica
                 resLogic = ResumenLogic()
+                adminLogic = AdminLogic()
                 # Obtener datos del form
-                idRes = int(request.form["deleteRes"])
+                titulo = request.form["title"]
+                sinopsis = request.form["sinop"]
+                recomendacion = int(request.form["recom"])
+                infoAutor = request.form["infAutor"]
+                contenido = request.form["content"]
+                adminDict = adminLogic.getRowByAdmin(
+                    session["login_admin"])
+                idAdmin = adminDict["id"]
+                idCat = request.form["cat"]
+                idRes = int(request.form["idResu"])
                 # Mandando datos a database
-                rows = resLogic.deleteResu(idRes)
-                accion = "eliminó"
+                rows = resLogic.updateRes(
+                    titulo, sinopsis, recomendacion, infoAutor, contenido, idAdmin, idCat, idRes)
+                accion = "actualizó"
                 return render_template("done.html", accion=accion, rows=rows)

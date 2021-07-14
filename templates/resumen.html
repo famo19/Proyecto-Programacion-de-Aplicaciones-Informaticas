@@ -23,8 +23,8 @@
             </a>
 
             <div class="header__links hide-for-mobile">
-                <a href="{{ url_for('categories') }}">Categorías</a>
-                <a href="{{ url_for('resumen') }}">Resumenes</a>
+                <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
                 <a href="{{ url_for('usuarios') }}">Usuarios</a>
                 <a href="{{ url_for('requestView') }}">Solicitudes</a>
             </div>
@@ -40,8 +40,8 @@
                     <span>Menu</span>
                 </a>
                 <ul class="menu">
-                    <li><a class="menuLink" href="{{ url_for('categories') }}">Categorías</a></li>
-                    <li><a class="menuLink" href="{{ url_for('resumen') }}">Resumenes</a></li>
+                    <li><a class="menuLink" href="{{ url_for('createCat') }}">Categorías</a></li>
+                    <li><a class="menuLink" href="{{ url_for('createRes') }}">Resumenes</a></li>
                     <li><a class="menuLink" href="{{ url_for('usuarios') }}">Usuarios</a></li>
                     <li><a class="menuLink" href="{{ url_for('requestView') }}">Solicitudes</a></li>
                     <li><a class="menuLink" href="{{ url_for('login') }}" onclick="logOut()">Cerrar sesión</a></li>
@@ -98,6 +98,7 @@
                 <th>Recomendación</th>
                 <th>Información del autor</th>
                 <th style="width: 100%;">Contenido</th>
+                <th></th>
             </tr>
             {% for resumen in resumenes %}
             <tr>
@@ -108,6 +109,12 @@
                 <td>{{resumen["recomendación"]}}</td>
                 <td>{{resumen["informacionDelAutor"]}}</td>
                 <td style="width: 100%;">{{resumen["contenido"]}}</td>
+                <td>
+                    <form action="{{ url_for('updateRes') }}" method="get">
+                        <input type="hidden" name="idRes" id="idRes" value='{{resumen["id"]}}'>
+                        <input type="submit" value="Actualizar">
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </table>
@@ -133,8 +140,8 @@
             </div>
 
             <div class="footer__links colh1">
-                <a href="{{ url_for('categories') }}">Categorías</a>
-                <a href="{{ url_for('resumen') }}">Resumenes</a>
+                <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
                 <a href="{{ url_for('usuarios') }}">Usuarios</a>
                 <a href="{{ url_for('requestView') }}">Solicitudes</a>
             </div>
