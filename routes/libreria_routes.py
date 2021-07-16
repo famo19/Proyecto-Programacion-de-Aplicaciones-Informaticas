@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, session
 from logic.libreria_logic import LibreriaLogic
 from logic.user_logic import UserLogic
 from logic.resumen_logic import ResumenLogic
+from logic.categorias_logic import CategoriasLogic
 import requests
 
 class LibreriaRoutes:
@@ -23,7 +24,11 @@ class LibreriaRoutes:
             logic = LibreriaLogic()
             session["viewingBook"] = titulo
             result = logic.getLibroByTitle(titulo)
-            return render_template("books.html", result=result)
+            idCat = result["idCategoria"]
+            #Sacando categoría
+            logicCate = CategoriasLogic()
+            categoria = logicCate.getCatById(idCat)
+            return render_template("books.html", result=result, categoria=categoria)
 
         @app.route("/libreria/books/addedBook")
         def addBook():

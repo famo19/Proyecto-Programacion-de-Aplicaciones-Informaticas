@@ -29,7 +29,7 @@ class LibreriaLogic(PybaLogic):
     def getLibroByTitle(self, title):
         database = self.createDatabaseObj()
         sql = (
-            "SELECT `titulo`, `sinopsis`, `recomendación`, `informacionDelAutor`, `contenido`"
+            "SELECT `titulo`, `sinopsis`, `recomendación`, `informacionDelAutor`, `contenido`, `idCategoria`"
             + f"FROM `resumen` where `titulo` like '{title}';"
         )
         result = database.executeQuery(sql)

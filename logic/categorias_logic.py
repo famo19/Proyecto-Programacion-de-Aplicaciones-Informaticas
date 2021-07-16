@@ -37,7 +37,7 @@ class CategoriasLogic(PybaLogic):
         )
         result = database.executeQuery(sql)
         if len(result) > 0:
-            return result
+            return result[0]
         else:
             return []
 
