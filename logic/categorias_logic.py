@@ -28,6 +28,19 @@ class CategoriasLogic(PybaLogic):
         else:
             return []
 
+    # OBTENER CATEGORIA POR ID
+    def getCatById(self, idCat):
+        database = self.createDatabaseObj()
+        sql = (
+            "SELECT `nombre`"
+            + f"FROM `categories` where `id` like '{idCat}';"
+        )
+        result = database.executeQuery(sql)
+        if len(result) > 0:
+            return result
+        else:
+            return []
+
     # ELIMINAR CATEGORIA
     def deleteCat(self, id):
         database = self.createDatabaseObj()

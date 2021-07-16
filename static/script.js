@@ -4,6 +4,14 @@ function bookSelected(bookId) {
     window.location = "/libreria/books/"+bookTitle;
 }
 
+function addBook(){
+  window.location = "/libreria/books/addedBook";
+}
+
+function deleteBook(bookId){
+  var titulo = bookId
+  window.location = "/libreria/deleteBooks/"+titulo;
+}
 // HIGHLIGHTS
 
 function highlightSelectedToDelete(highlightId) {

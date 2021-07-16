@@ -49,6 +49,18 @@ class ResumenLogic(PybaLogic):
             return result[0]
         else:
             return []
+    
+    # OBTENER UN RESUMEN POR TITULO
+    def getResumenByTitle(self, titulo):
+        database = self.createDatabaseObj()
+        sql = (
+            f"SELECT * FROM resumen WHERE titulo='{titulo}';"
+        )
+        result = database.executeQuery(sql)
+        if len(result) > 0:
+            return result[0]
+        else:
+            return []
 
     # ELIMINAR RESUMEN
     def deleteResu(self, id):
