@@ -9,7 +9,7 @@ class CategoriasLogic(PybaLogic):
     def insertCat(self, nombre, id_Usuario):
         database = self.createDatabaseObj()
         sql = (
-            "INSERT INTO `viajeentrelibros`.`categories` "
+            "INSERT INTO `categories` "
             + "(`id`,`nombre`,`idUsuario`) "
             + f"VALUES(0,'{nombre}',{id_Usuario});"
         )
@@ -20,7 +20,7 @@ class CategoriasLogic(PybaLogic):
     def getAllCats(self):
         database = self.createDatabaseObj()
         sql = (
-            "SELECT id, nombre, idUsuario FROM viajeentrelibros.categories;"
+            "SELECT id, nombre, idUsuario FROM categories;"
         )
         result = database.executeQuery(sql)
         if len(result) > 0:
@@ -32,7 +32,7 @@ class CategoriasLogic(PybaLogic):
     def deleteCat(self, id):
         database = self.createDatabaseObj()
         sql = sql = (
-            "DELETE FROM `viajeentrelibros`.`categories` "
+            "DELETE FROM `categories` "
             + f"WHERE id={id};"
         )
         rows = database.executeNonQueryRows(sql)
