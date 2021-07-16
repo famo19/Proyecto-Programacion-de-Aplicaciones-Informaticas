@@ -8,6 +8,7 @@ from routes.register_routes import RegisterRoutes
 from routes.perfil_routes import PerfilRoutes
 from routes.categorias_routes import CategoriasRoutes
 from routes.resumen_routes import ResumenRoutes
+from routes.request_routes import RequestRoutes
 import bcrypt
 
 app = Flask(__name__)
@@ -22,6 +23,7 @@ BusquedaRoutes.configure_routes(app)
 PerfilRoutes.configure_routes(app)
 CategoriasRoutes.configure_routes(app)
 ResumenRoutes.configure_routes(app)
+RequestRoutes.configure_routes(app)
 
 
 @app.route("/")

@@ -61,3 +61,49 @@ function highlight(text) {
         contenido.innerHTML = innerHTML;
     }
 }*/
+
+var menu = document.querySelector(".menu")
+var ham = document.querySelector(".ham")
+var xIcon = document.querySelector(".xIcon")
+var menuIcon = document.querySelector(".menuIcon")
+
+ham.addEventListener("click", toggleMenu)
+
+function toggleMenu() {
+  if (menu.classList.contains("showMenu")) {
+    menu.classList.remove("showMenu");
+    xIcon.style.display = "none";
+    menuIcon.style.display = "block";
+  } else {
+    menu.classList.add("showMenu");
+    xIcon.style.display = "block";
+    menuIcon.style.display = "none";
+  }
+}
+
+var menuLinks = document.querySelectorAll(".menuLink")
+
+menuLinks.forEach(
+  function (menuLink) {
+    menuLink.addEventListener("click", toggleMenu)
+  }
+);
+
+const inputs = document.querySelectorAll(".input");
+
+function focusFunc() {
+  let parent = this.parentNode;
+  parent.classList.add("focus");
+}
+
+function blurFunc() {
+  let parent = this.parentNode;
+  if (this.value == "") {
+    parent.classList.remove("focus");
+  }
+}
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", focusFunc);
+  input.addEventListener("blur", blurFunc);
+});
