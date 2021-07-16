@@ -25,6 +25,17 @@ class RequestLogic(PybaLogic):
             return result[0]
         else:
             return []
+    
+    def getAllRequests(self):
+        database = self.createDatabaseObj()
+        sql = (
+            "SELECT idrequest,User_name,User_email,Book_name,Book_year,Book_author,message FROM `request`;"
+        )
+        result = database.executeQuery(sql)
+        if len(result) > 0:
+            return result
+        else:
+            return []
         
     def deleteRequestByBook(self, Book_name, idrequest):
         database = self.createDatabaseObj()
