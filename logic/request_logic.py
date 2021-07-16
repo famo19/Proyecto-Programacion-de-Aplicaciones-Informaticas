@@ -9,7 +9,7 @@ class RequestLogic(PybaLogic):
         database = self.createDatabaseObj()
         sql = (
             "INSERT INTO `request`(`idrequest`,`User_name`,`User_email`,`Book_name`,`Book_year`,`Book_author`,`message`)"
-            + f"VALUES(0,'{User_name}','{User_email}',{Book_name}','{Book_year}','{Book_author}','{message}');"
+            + f"VALUES(0,'{User_name}','{User_email}','{Book_name}',{Book_year},'{Book_author}','{message}');"
         )
         rows = database.executeNonQueryRows(sql)
         return rows
