@@ -34,12 +34,5 @@ class BusquedaRoutes:
             
 
         
-        """def searchByCategory():
-            if request.method == "GET":
-                return render_template("busqueda.html")
-            elif request.method == "POST":
-                selectedResumen = request.form["titleCat"]
-                session["titleCat"] = selectedResumen
-                return redirect("busqueda.html", selectedResumen=selectedResumen)"""
 
 
