@@ -15,12 +15,24 @@ class BusquedaLogic(PybaLogic):
             return result
         else:
             return []
-    
-    def getResumenByCategory(self, cate):
+
+    def getAllCats(self):
         database = self.createDatabaseObj()
         sql = (
-            "SELECT `titulo`, `sinopsis`, `recomendacion`, `informacionDelAutor`, `contenido`"
-            + f"FROM `resumen` where `titulo` like '{titulo}';"
+            "SELECT id, nombre, idUsuario FROM viajeentrelibros.categories;"
+        )
+        result = database.executeQuery(sql)
+        if len(result) > 0:
+            return result
+        else:
+            return []
+
+    
+    def getResumenByCategory(self, idcate):
+        database = self.createDatabaseObj()
+        sql = (
+            "SELECT `titulo`, `sinopsis`, `recomendación`, `informacionDelAutor`, `contenido`"
+            + f"FROM `resumen` where `idCategoria` like {idcate};"
         )
         result = database.executeQuery(sql)
         if len(result) > 0:

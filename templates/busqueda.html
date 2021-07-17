@@ -64,17 +64,24 @@
                 <input class="button" type="submit" value="Buscar">
             </form>
         </div>
-        <div>
-            <h2>Buscar por categoria</h2>
-            <br><br>
-            <label for="" style="font-size: 20px">Categoria</label>
-            <select class="inputSearch" name="titleCat" id="titleCat" style="width: 80%; margin-left: 5px;">
+        <div class="flex-container-buscar">
+            <div>
+            <h2> <label for="titulo"> Buscar por categoría: </label> </h2>
+            <label for=""><b>Elija la categoría</b></label>
+            <form action="{{ url_for('buscarByCat') }}" method="post">
+            <select name="cat" id="cat" placeholder="Inserte la categoría">
+
+                {% for categoria in categorias  %}
+                <option value='{{categoria["id"]}}'>{{categoria["nombre"]}}</option>
+                {% endfor %} 
             </select>
-            <br><br>
-            <button class="button" onclick="loadResumeDataFromClient()">Buscar</button>
-            <br><br>
-            <br><br>
+            <br>
+            <input class="button" type="submit" value="Buscar">
+            </div>  
+            </form>
+        <br>
         </div>
+        
     </div>
 
     <h1 style = "text-align: center;">Resultados</h1>
