@@ -4,15 +4,15 @@ class LibreriaLogic(PybaLogic):
     def __init__(self):
         super().__init__()
 
-    """def insertUser(self, userName, userEmail, password, salt):
+    def insertBook(self, titulo, sinopsis, recomendacion, informacionDelAutor, contenido, idUsuario, idCategoria, idResumen):
         database = self.createDatabaseObj()
         sql = (
-            "INSERT INTO `user` "
-            + "(`id`,`user_name`,`user_email`,`password`,`salt`) "
-            + f"VALUES(0,'{userName}','{userEmail}','{password}','{salt}');"
+            "INSERT INTO `libreria` "
+            + "(`idlibreria`,`titulo`,`sinopsis`,`recomendacion`,`informacionDelAutor`, `contenido`, `idUsuario`, `idCategoria`, `idResumen`) "
+            + f"VALUES(0,'{titulo}','{sinopsis}','{recomendacion}','{informacionDelAutor}','{contenido}','{idUsuario}','{idCategoria}','{idResumen}');"
         )
         rows = database.executeNonQueryRows(sql)
-        return rows"""
+        return rows
 
     def getLibroByUserId(self, userId):
         database = self.createDatabaseObj()
@@ -29,7 +29,7 @@ class LibreriaLogic(PybaLogic):
     def getLibroByTitle(self, title):
         database = self.createDatabaseObj()
         sql = (
-            "SELECT `titulo`, `sinopsis`, `recomendación`, `informacionDelAutor`, `contenido`"
+            "SELECT `titulo`, `sinopsis`, `recomendación`, `informacionDelAutor`, `contenido`, `idCategoria`"
             + f"FROM `resumen` where `titulo` like '{title}';"
         )
         result = database.executeQuery(sql)
@@ -37,6 +37,15 @@ class LibreriaLogic(PybaLogic):
             return result[0]
         else:
             return []     
+    
+    def deleteBookByTitle(self, titulo, idUsuario):
+        database = self.createDatabaseObj()
+        sql = (
+            "DELETE"
+            + f" FROM `libreria` where `titulo` like '{titulo}'and `idUsuario` like '{idUsuario}';"
+        )
+        rows = database.executeNonQueryRows(sql)
+        return rows
 
     """def getRowByUser(self, user):
         database = self.createDatabaseObj()

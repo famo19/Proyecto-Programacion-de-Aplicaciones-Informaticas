@@ -1,6 +1,8 @@
 from flask import render_template, request, redirect, session
 from logic.libreria_logic import LibreriaLogic
 from logic.user_logic import UserLogic
+from logic.resumen_logic import ResumenLogic
+from logic.categorias_logic import CategoriasLogic
 import requests
 
 class LibreriaRoutes:
@@ -20,9 +22,42 @@ class LibreriaRoutes:
         @app.route("/libreria/books/<string:titulo>")
         def books(titulo):
             logic = LibreriaLogic()
+            session["viewingBook"] = titulo
             result = logic.getLibroByTitle(titulo)
-            return render_template("books.html", result=result)
+            idCat = result["idCategoria"]
+            #Sacando categoría
+            logicCate = CategoriasLogic()
+            categoria = logicCate.getCatById(idCat)
+            return render_template("books.html", result=result, categoria=categoria)
 
-        @app.route("/libreria/deleteBooks")
-        def deleteBooks():
-            return "borrar libro"
+        @app.route("/libreria/books/addedBook")
+        def addBook():
+            #sacar datos del current viewing book
+            titulo = session["viewingBook"]
+            logicResumen = ResumenLogic()
+            resumen = logicResumen.getResumenByTitle(titulo)
+            idResumen = resumen["id"]
+            sinopsis = resumen["sinopsis"]
+            recomendacion = resumen["recomendación"]
+            informacionDelAutor = resumen["informacionDelAutor"]
+            contenido = resumen["contenido"]
+            idCategoria = resumen["idCategoria"]
+            #sacar id del usuario
+            logicUser = UserLogic()
+            username = session['login_user']
+            user = logicUser.getRowByUser(username)
+            userId = user["id"]
+            #insertar el libro en la bd
+            logicBook = LibreriaLogic()
+            rows = logicBook.insertBook(titulo,sinopsis,recomendacion,informacionDelAutor,contenido,userId,idCategoria,idResumen)
+            return redirect("/libreria")
+
+        @app.route("/libreria/deleteBooks/<string:titulo>")
+        def deleteBooks(titulo):
+            logicUser = UserLogic()
+            username = session['login_user']
+            user = logicUser.getRowByUser(username)
+            userId = user["id"]
+            logicBook = LibreriaLogic()
+            rows = logicBook.deleteBookByTitle(titulo, userId)
+            return redirect("/libreria")

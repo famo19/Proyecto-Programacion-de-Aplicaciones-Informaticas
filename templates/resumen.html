@@ -108,7 +108,7 @@
                 <td>{{resumen["idCategoria"]}}</td>
                 <td>{{resumen["recomendación"]}}</td>
                 <td>{{resumen["informacionDelAutor"]}}</td>
-                <td style="width: 100%;">{{resumen["contenido"]}}</td>
+                <!--<td style="width: 100%;">{{resumen["contenido"]}}</td>-->
                 <td>
                     <form action="{{ url_for('updateRes') }}" method="get">
                         <input type="hidden" name="idRes" id="idRes" value='{{resumen["id"]}}'>

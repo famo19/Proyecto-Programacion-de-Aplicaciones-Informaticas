@@ -54,11 +54,11 @@
     <div class = "flex-container-highlights">
             <div>
                 <h2> Categoría: </h2>
-                <p id = "categoria"></p> 
+                <p id = "categoria">{{ categoria["nombre"] }}</p> 
             </div>
             <div> 
                 <h2> Recomendación: </h2>
-                <p id = "recomendacion">{{ result["recomendacion"] }}</p> 
+                <p id = "recomendacion">{{ result["recomendación"] }}</p> 
             </div>
             <div>
                 <h2> Información del autor </h2>
@@ -73,7 +73,7 @@
     <br>
     
     <div>
-        <button class="button" onclick="addToLibrary()" style="margin-left: 100px"> Agregar a la librería </button>
+        <button class="button" onclick="addBook()" style="margin-left: 100px"> Agregar a la librería </button>
         <button class="button" onclick="getSelectionText()"> Resaltar texto </button>
     </div>
     <br>

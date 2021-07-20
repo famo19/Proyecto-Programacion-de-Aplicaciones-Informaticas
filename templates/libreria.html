@@ -52,16 +52,14 @@
             <table id="libTable" style="width:100%">
                 <tr>
                     <th style="width: 10%">Título</th>
-                    <th style="width: 10%">Categoría</th>
                     <th>Sinopsis</th>
                 </tr>
                 {% for element in result%}
                 <tr>
                     <td>{{ element["titulo"] }}</td>
-                    <td></td>
                     <td>{{ element["sinopsis"] }}</td>
                     <td><a class="button" onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>
-                    <td><a class="button" href="" id="{{ element["titulo"] }}">Eliminar Libro</a></td>
+                    <td><a class="button" onclick="deleteBook(this.id)" id="{{ element["titulo"] }}">Eliminar Libro</a></td>
                 </tr>
                 {% endfor %}
             </table>

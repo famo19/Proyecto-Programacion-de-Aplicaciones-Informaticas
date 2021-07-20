@@ -9,7 +9,7 @@ class ResumenLogic(PybaLogic):
     def insertRes(self, titulo, sinopsis, recomendacion, informacionDelAutor, contenido, idUsuario, idCategoria):
         database = self.createDatabaseObj()
         sql = (
-            "INSERT INTO `viajeentrelibros`.`resumen` "
+            "INSERT INTO `resumen` "
             + "(`id`,`titulo`,`sinopsis`,`recomendación`,`informacionDelAutor`,`contenido`,`idUsuario`,`idCategoria`) "
             + f"VALUES(0,'{titulo}','{sinopsis}','{recomendacion}','{informacionDelAutor}','{contenido}',{idUsuario},{idCategoria});"
         )
@@ -20,7 +20,7 @@ class ResumenLogic(PybaLogic):
     def updateRes(self, titulo, sinopsis, recomendacion, informacionDelAutor, contenido, idUsuario, idCategoria, id):
         database = self.createDatabaseObj()
         sql = (
-            "UPDATE `viajeentrelibros`.`resumen` SET "
+            "UPDATE `resumen` SET "
             + f"`titulo` = '{titulo}',`sinopsis` = '{sinopsis}',`recomendación` = '{recomendacion}',`informacionDelAutor` = '{informacionDelAutor}',`contenido` = '{contenido}',`idUsuario` = {idUsuario },`idCategoria` = {idCategoria} WHERE `id` = {id};"
         )
         rows = database.executeNonQueryRows(sql)
@@ -30,7 +30,7 @@ class ResumenLogic(PybaLogic):
     def getAllResumes(self):
         database = self.createDatabaseObj()
         sql = (
-            "SELECT * FROM viajeentrelibros.resumen;"
+            "SELECT * FROM resumen;"
         )
         result = database.executeQuery(sql)
         if len(result) > 0:
@@ -42,7 +42,19 @@ class ResumenLogic(PybaLogic):
     def getResumenById(self, id):
         database = self.createDatabaseObj()
         sql = (
-            f"SELECT * FROM viajeentrelibros.resumen WHERE id={id};"
+            f"SELECT * FROM resumen WHERE id={id};"
+        )
+        result = database.executeQuery(sql)
+        if len(result) > 0:
+            return result[0]
+        else:
+            return []
+    
+    # OBTENER UN RESUMEN POR TITULO
+    def getResumenByTitle(self, titulo):
+        database = self.createDatabaseObj()
+        sql = (
+            f"SELECT * FROM resumen WHERE titulo='{titulo}';"
         )
         result = database.executeQuery(sql)
         if len(result) > 0:
@@ -54,7 +66,7 @@ class ResumenLogic(PybaLogic):
     def deleteResu(self, id):
         database = self.createDatabaseObj()
         sql = (
-            "DELETE FROM `viajeentrelibros`.`resumen` "
+            "DELETE FROM `resumen` "
             + f"WHERE id={id};"
         )
         rows = database.executeNonQueryRows(sql)
