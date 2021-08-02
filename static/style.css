@@ -2577,11 +2577,25 @@ a:hover {
   margin: 100px;
   color: white;
 }
-.api-subscription>h2{
+.api-subscription>div{
   padding: 50px; 
   text-align:center;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 0%;
+}
+
+.api-subscription>div>h2{
+  text-align:center;
+  color: white;
+  margin-bottom: 0%;
+}
+
+.rectangle-api {
+  height: 3px;
+  width: 20%;
+  background-color: white;
+  margin: auto;
+  margin-top: 15px;
 }
 /** api end */
 
@@ -2589,7 +2603,7 @@ a:hover {
 
 .rectangle {
   height: 3px;
-  width: 100px;
+  width: 20%;
   background-color: #31d35c;
   margin: auto;
 }
