@@ -48,24 +48,28 @@
 
     <div class="flex-container-lib">
         <div>
-            <h1>Librería</h1>
+            <h1 style="text-align: center;">Librería</h1>
             <table id="libTable" style="width:100%">
-                <tr>
-                    <th style="width: 10%">Título</th>
+                <thead>
+                    <th style="width: 20%">Título</th>
                     <th>Sinopsis</th>
-                </tr>
+                    <th></th>
+                    <th></th>
+                </thead>
                 {% for element in result%}
-                <tr>
-                    <td>{{ element["titulo"] }}</td>
-                    <td>{{ element["sinopsis"] }}</td>
-                    <td><a class="button" onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>
-                    <td><a class="button" onclick="deleteBook(this.id)" id="{{ element["titulo"] }}">Eliminar Libro</a></td>
-                </tr>
+                <tbody>
+                    <tr>
+                      <td>{{ element["titulo"] }}</td>
+                      <td>{{ element["sinopsis"] }}</td>
+                      <td><a class="button" onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>
+                      <td><a class="button" onclick="deleteBook(this.id)" id="{{ element["titulo"] }}">Eliminar Libro</a></td>
+                    </tr>
+                    
+                </tbody>
                 {% endfor %}
             </table>
         </div>
     </div>
-
     <br>
     <footer id="footer" class="footer">
     <div class="container">
