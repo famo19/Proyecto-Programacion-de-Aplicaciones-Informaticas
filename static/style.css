@@ -2400,6 +2400,7 @@ a:hover {
   margin-right: 100px;
   font-size: 18px;
   line-height: 75px;
+  font-family: sans-serif;
 }
 
 .button {
@@ -2424,46 +2425,37 @@ a:hover {
 .flex-container-lib {
   display: flex;
   justify-content: center;
-  border-color: white;
 }
 
 .flex-container-lib>div {
-  width: 100%;
-  margin: 30px;
-  text-align: center;
-  line-height: 25px;
-  font-size: 18px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border: none;
+  margin: 10px;
+	background: white;
+	font-family: sans-serif;
+	font-weight: 100;
+  position: static;
+	/**top: 100%;
+	left: 100%;
+	transform: translate(-100%, -100%);**/
 }
 
 
 #libTable {
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
   border-collapse: collapse;
-  justify-content: center;
-  border-collapse: separate;
-  border-spacing: 5px 5px;
-  border-color: white;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 #libTable td,
 #libTable th {
-  border: #f2f2f2;
-  padding: 8px;
-  font-size: medium;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border-color: white;
+  padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
 
 }
 
-#libTable tr:nth-child(even) {
+/** #libTable tr:nth-child(even) {
   background-color: #d0ffd0ef;
 }
 
@@ -2474,14 +2466,29 @@ a:hover {
 #libTable tr:hover {
   background-color: #31d35c;
   color: white;
-}
+} **/
 
 #libTable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #2d314d;
-  color: white;
+  text-align: left;
+  background-color: #55608f;
+}
+
+#libTable tr:hover {
+	background-color: rgba(255,255,255,0.3);
+}
+	
+#libTable	td {
+	position: relative;}
+
+#libTable	td:hover::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -9999px;
+	bottom: -9999px;
+	background-color: rgba(255,255,255,0.2);
+	z-index: -1;
 }
 
 /** LIBRERIA FIN*/
@@ -2494,43 +2501,34 @@ a:hover {
 
 .flex-container {
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 
 .flex-container>div {
-  width: 100%;
-  margin: 30px;
-  text-align: center;
-  line-height: 25px;
-  font-size: 18px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
+  margin: 10px;
+	background: white;
+	font-family: sans-serif;
+	font-weight: 100;
+  position: static;
 }
 
 
 #hTable {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
   width: 100%;
-  justify-content: center;
-  border-collapse: separate;
-  border-spacing: 5px 5px;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 #hTable td,
 #hTable th {
-  border: #f2f2f2;
-  padding: 8px;
-  font-size: medium;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
+  padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
 }
 
-#hTable tr:nth-child(even) {
+/**#hTable tr:nth-child(even) {
   background-color: #d0ffd0ef;
 }
 
@@ -2541,15 +2539,30 @@ a:hover {
 #hTable tr:hover {
   background-color: #31d35c;
   color: white;
-}
+}**/
 
 #hTable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #2d314d;
-  color: white;
+  text-align: left;
+  background-color: #55608f;
 
+}
+
+#hTable tr:hover {
+	background-color: rgba(255,255,255,0.3);
+}
+	
+#hTable	td {
+	position: relative;}
+
+#hTable	td:hover::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -9999px;
+	bottom: -9999px;
+	background-color: rgba(255,255,255,0.2);
+	z-index: -1;
 }
 
 .hdiv {
@@ -2557,6 +2570,81 @@ a:hover {
 }
 
 /** HIGLIGHTS FIN */
+
+/** Api */
+.api-subscription{
+  background: linear-gradient(45deg, #49a09d, #5f2c82); 
+  margin: 100px;
+  color: white;
+}
+.api-subscription>h2{
+  padding: 50px; 
+  text-align:center;
+  color: white;
+  margin-bottom: 10px;
+}
+/** api end */
+
+/** BOOK INICIO **/
+
+.rectangle {
+  height: 3px;
+  width: 100px;
+  background-color: #31d35c;
+  margin: auto;
+}
+
+.rectangle-sinopsis {
+  height: 25px;
+  width: 160px;
+  background-color: #31d35c;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 70%;
+  padding: 20px;
+}
+
+.column-3 {
+  float: left;
+  width: 33.3%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .column-3 {
+    width: 100%;
+    height: max-content;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+  height: 500px;
+}
+
+.info-container {
+  padding: 2px 16px;
+}
+/** BOOK FIN */
 
 /** Dashboard Inicio */
 .flex-container-buscar{
