@@ -74,20 +74,19 @@
     
 
     <div class = "container-book">
-          <div class="row">
-            <div class="column-3">
-                <div class="card" style="text-align: center;">
-                  <img src="{{url_for('static', filename='images/categoria.PNG')}}" alt="book-part">
-                  <div class="info-container">
-                    <h2> Categoría </h2>
-                    <p id = "categoria">{{ categoria["nombre"] }}</p> 
-                  </div>
-                  
-                </div>
-            </div>
             <div class="column-3">
               <div class="card" style="text-align: center;">
-                <img src="{{url_for('static', filename='images/recomendacion.PNG')}}" alt="book-part">
+                <img style="height: 70px;" src="{{url_for('static', filename='images/categoria.PNG')}}" alt="book-part">
+                <div class="info-container">
+                  <h2> Categoría </h2>
+                  <p id = "categoria">{{ categoria["nombre"] }}</p> 
+                </div>
+              </div>
+            </div>
+            
+            <div class="column-3">
+              <div class="card" style="text-align: center;">
+                <img style="height: 70px;" src="{{url_for('static', filename='images/recomendacion.PNG')}}" alt="book-part">
                 <div class="info-container"> 
                   <h2> Recomendación </h2>
                   <p id = "recomendacion">{{ result["recomendación"] }}</p> 
@@ -96,7 +95,7 @@
             </div>
             <div class="column-3">
               <div class="card" style="text-align: center;">
-                <img src="{{url_for('static', filename='images/autor.PNG')}}" alt="book-part">
+                <img style="height: 70px;" src="{{url_for('static', filename='images/autor.PNG')}}" alt="book-part">
                 <div class="info-container">
                   <h2> Información del autor </h2>
                   <p id = "infoAutor">{{ result["informacionDelAutor"] }}</p> 
