@@ -25,7 +25,6 @@ class CategoriasRoutes:
                     # todo agregar ultimo param idusuario
                     rows = catLogic.insertCat(categoria, idAdmin)
                     allCategorias = catLogic.getAllCats()
-                    # TODO INTENTAR HACER UNA VISTA SQL
                     return render_template("categories.html", categorias=allCategorias)
 
         @ app.route("/categorias/delete", methods=["GET", "POST"])

@@ -49,22 +49,20 @@
             </div>
     </header>
     <br>
-    <p>Bienvenido, <b id="user"></b></p>
+    <p>Bienvenido, <b id="user">{{session["login_admin"]}}</b></p>
     <div id="resumen">
         <br><br>
-        <a href="{{ url_for('updateRes') }}">-Actualizar</a>
-
         <h1>Agregar resumen</h1>
         <form action="{{ url_for('updateRes') }}" method="post">
             <br><br>
-            <label for=""><b>Título</b></label>
+            <label for=""><b>Título</b></label><br><br>
             <input type="text" name="title" id="title" placeholder="Inserte el título" value='{{resumen["titulo"]}}'>
             <br><br>
-            <label for=""><b>Sinopsis</b></label>
+            <label for=""><b>Sinopsis</b></label><br><br>
             <input type="text" name="sinop" id="sinop" placeholder="Inserte la sinopsis"
                 value='{{resumen["sinopsis"]}}'>
             <br><br>
-            <label for=""><b>Categoría</b></label>
+            <label for=""><b>Categoría</b></label><br><br>
             <select name="cat" id="cat" placeholder="Inserte la categoría">
 
                 {% for categoria in categorias  %}
@@ -74,20 +72,20 @@
                 {% endfor %}
             </select>
             <br><br>
-            <label for=""><b>Recomendación</b></label>
+            <label for=""><b>Recomendación</b></label><br><br>
             <input type="int" name="recom" id="recom" placeholder="Inserte la recomendación"
                 value='{{resumen["recomendación"]}}'>
             <br><br>
-            <label for=""><b>Información del autor</b></label>
+            <label for=""><b>Información del autor</b></label><br><br>
             <input type="text" name="infAutor" id="infAutor" placeholder="Inserte la información de autor"
                 value='{{resumen["informacionDelAutor"]}}'>
             <br><br>
-            <label for=""><b>Contenido</b></label><br>
+            <label for=""><b>Contenido</b></label><br><br>
             <textarea name="content" id="content" cols="50" rows="5" style="resize: vertical;"
                 placeholder="Inserte el contenido del libro">{{resumen["contenido"]}}</textarea>
             <br><br>
             <input type="hidden" name="idResu" id="idResu" value='{{resumen["id"]}}'>
-            <input type="submit" value="Enviar">
+            <input id="resumen-button" type="submit" value="Enviar">
         </form>
         <br><br>
 

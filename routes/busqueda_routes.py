@@ -26,13 +26,3 @@ class BusquedaRoutes:
                 logic = BusquedaLogic()
                 result = logic.getResumenByCategory(idCat)
                 return render_template("busqueda.html", result=result)
-
-
-
-
-
-            
-
-        
-
-

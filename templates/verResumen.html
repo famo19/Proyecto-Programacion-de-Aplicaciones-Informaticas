@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 
-    <title>Categorías</title>
+    <title>Resumen</title>
 </head>
 
 <body>
+
     <header id="header" class="header">
         <div class="overlay has-fade">
 
@@ -47,39 +48,15 @@
                 </ul>
             </div>
     </header>
-
-    <div id="categoriasdiv">
-        <h1>Agregar categoría</h1>
-        <p>Escriba el nombre de la nueva categoría</p>
-        <form action="{{ url_for('createCat') }}" method="post">
-            <input type="text" name="cat" id="cat" placeholder="Escriba aquí">
-            <input id="resumen-button" type="submit" value="Enviar">
-        </form>
-
-        <a id="resumen-button" href="{{ url_for('deleteCat') }}">Eliminar categoría</a>
-        <br>
-
-        <div>
-            <br><br>
-            <table id="catTable" style="width:50%" border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>Categorías</th>
-                    <th>Usuario</th>
-
-                </tr>
-                {% for categoria in categorias %}
-                <tr>
-                    <td>{{categoria["id"]}}</td>
-                    <td>{{categoria["nombre"]}}</td>
-                    <td>{{categoria["idUsuario"]}}</td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
-
-
+    <h1>Resumen de {{resumen["titulo"]}}</h1>
+    <div id="resumen">
+        <p>
+            {{resumen["contenido"]}}
+        </p>
+        <br><br>
+        <a id="resumen-button" href="{{ url_for('createRes') }}">Volver a Resúmenes</a><br><br>
     </div>
+
 
     <footer id="footer" class="footer">
         <div class="container">
@@ -116,9 +93,9 @@
         </div>
     </footer>
 
+
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <script src="{{url_for('static', filename='script.js')}}"></script>
-
 </body>
 
 </html>
