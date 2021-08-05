@@ -93,7 +93,7 @@
         <br>
         <table id="resumeTable" style="width:98%" border="1">
             <tr>
-                <th style="width: 60%;">Usuario</th>
+                <th style="width: 50%;">ID</th>
                 <th>Título</th>
                 <th>Sinopsis</th>
                 <th>Categoría</th>
@@ -103,7 +103,7 @@
             </tr>
             {% for resumen in resumenes %}
             <tr>
-                <td style="width: 60%;">{{resumen["idUsuario"]}}</td>
+                <td style="width: 60%; text-align: center;">{{resumen["id"]}}</td>
                 <td>{{resumen["titulo"]}}</td>
                 <td>{{resumen["sinopsis"]}}</td>
                 <td>{{resumen["idCategoria"]}}</td>
