@@ -28,7 +28,10 @@ class LibreriaRoutes:
             #Sacando categoría
             logicCate = CategoriasLogic()
             categoria = logicCate.getCatById(idCat)
-            return render_template("books.html", result=result, categoria=categoria)
+            if session["userAccount"] == "gratis":
+                return render_template("booksFree.html", result=result, categoria=categoria)
+            else:
+                return render_template("booksPaid.html", result=result, categoria=categoria)
 
         @app.route("/libreria/books/addedBook")
         def addBook():

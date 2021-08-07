@@ -50,16 +50,30 @@
     <br>
     <h1 id = "tituloH1" style="text-align: center">{{ result["titulo"] }}</h1>
     <div class="rectangle"></div>
+    <!-- api tarjetas -->
     <div class="api-subscription">
       <div>
-        <h2>Opciones de lectura</h2>
-        <div class="rectangle-api"></div>
-        <p style="margin: 15px;">Disfruta del contenido de este libro completo en PDF y en audio.</p>
-        <button class="button"> PDF </button>
-        <button class="button"> Audio </button>
+        <h2 style="font-size:large">Suscribete a nuestro plan premium</h2>
+        <div class="rectangle-api" style="width: 20%;"></div>
+        <p style="color: white; font-size: small; margin-bottom:0%"> Adquiere tu cuenta premium para obtener acceso ilimitado a los contenidos completos en PDF y en audio de tus libros favoritos</p>
+        <a class="button" href="/dashboard" style="margin-top: 10px;">Suscribirse</a>
+        <!--pricing table
+        <div class="card" style="text-align: center; background:white;">
+          <img style="height: 70px;" src="{{url_for('static', filename='images/categoria.PNG')}}" alt="book-part">
+          <div class="info-container">
+            <h2> Categoría </h2>
+            <p id = "categoria">{{ categoria["nombre"] }}</p> 
+          </div>
+        </div>
+        pricing table fin-->
+
       </div>
     </div>
-    <div class="container-book">
+    
+
+    <!-- api tarjetas fin-->
+
+    <div class="container-book" style="margin-top: 0%;">
       <div class="row">
       <div class="column" style="width: 20%;">
         <h2 style="margin-bottom: 0%;"> Sinopsis </h2>
@@ -106,7 +120,7 @@
     </div>
     <br>
     <div class="container-book">
-        <h2> Contenido: </h2>
+        <h2> Resumen </h2>
         <p id = "contenido">{{ result["contenido"] }}</p>
     </div>
     <br>

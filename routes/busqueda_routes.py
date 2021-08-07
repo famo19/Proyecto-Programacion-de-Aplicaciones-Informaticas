@@ -8,7 +8,7 @@ class BusquedaRoutes:
         def buscar():
             if request.method == "GET":
                 logic = BusquedaLogic()
-                categorias =logic.getAllCats()
+                categorias = logic.getAllCats()
                 return render_template("busqueda.html", categorias=categorias)
             elif request.method == "POST":
                 logic = BusquedaLogic()
