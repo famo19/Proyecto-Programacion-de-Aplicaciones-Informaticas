@@ -49,70 +49,74 @@
             </div>
     </header>
     <br>
-    <p>Bienvenido, <b id="user"></b></p>
     <div id="resumen">
-        <br><br>
-        <a href="{{ url_for('createRes') }}">-Actualizar</a>
-        <a href="{{ url_for('deleteRes') }}">-Eliminar Resumen</a>
+    <p>Bienvenido, <b id="user">{{session["login_admin"]}}</b></p>
+    
+        <hr><br>
+
 
         <h1>Agregar resumen</h1>
         <form action="{{ url_for('createRes') }}" method="post">
-            <br><br>
-            <label for=""><b>Título</b></label>
+            <label for=""><b>Título</b></label><br><br>
             <input type="text" name="title" id="title" placeholder="Inserte el título">
             <br><br>
-            <label for=""><b>Sinopsis</b></label>
+            <label for=""><b>Sinopsis</b></label><br><br>
             <input type="text" name="sinop" id="sinop" placeholder="Inserte la sinopsis">
             <br><br>
-            <label for=""><b>Categoría</b></label>
+            <label for=""><b>Categoría</b></label><br><br>
             <select name="cat" id="cat" placeholder="Inserte la categoría">
                 {% for categoria in categorias  %}
                 <option value='{{categoria["id"]}}'>{{categoria["nombre"]}}</option>
                 {% endfor %}
             </select>
             <br><br>
-            <label for=""><b>Recomendación</b></label>
+            <label for=""><b>Recomendación</b></label><br><br>
             <input type="int" name="recom" id="recom" placeholder="Inserte la recomendación">
             <br><br>
-            <label for=""><b>Información del autor</b></label>
+            <label for=""><b>Información del autor</b></label><br><br>
             <input type="text" name="infAutor" id="infAutor" placeholder="Inserte la información de autor">
             <br><br>
-            <label for=""><b>Contenido</b></label><br>
+            <label for=""><b>Contenido</b></label><br><br> 
             <textarea name="content" id="content" cols="50" rows="5" style="resize: vertical;"
                 placeholder="Inserte el contenido del libro"></textarea>
             <br><br>
-            <input type="submit" value="Enviar">
+            <input id="resumen-button" type="submit" value="Enviar">
         </form>
+        <hr><br>
+        <h1>Eliminar resumen</h1>
+        <a id="resumen-button" href="{{ url_for('deleteRes') }}">Eliminar Resumen</a>
         <br><br>
-        <!--<button onclick="registerNewResume()" id="resumen-button">Agregar</button>-->
+        <hr><br>
 
 
-
-        <br><br>
+        <h1>Resúmenes</h1>
+        <br>
         <table id="resumeTable" style="width:98%" border="1">
             <tr>
-                <th style="width: 60%;">Usuario</th>
+                <th style="width: 50%;">ID</th>
                 <th>Título</th>
                 <th>Sinopsis</th>
                 <th>Categoría</th>
                 <th>Recomendación</th>
                 <th>Información del autor</th>
-                <th style="width: 100%;">Contenido</th>
-                <th></th>
+                <th>Acción</th>
             </tr>
             {% for resumen in resumenes %}
             <tr>
-                <td style="width: 60%;">{{resumen["idUsuario"]}}</td>
+                <td style="width: 60%; text-align: center;">{{resumen["id"]}}</td>
                 <td>{{resumen["titulo"]}}</td>
                 <td>{{resumen["sinopsis"]}}</td>
                 <td>{{resumen["idCategoria"]}}</td>
                 <td>{{resumen["recomendación"]}}</td>
                 <td>{{resumen["informacionDelAutor"]}}</td>
-                <!--<td style="width: 100%;">{{resumen["contenido"]}}</td>-->
                 <td>
                     <form action="{{ url_for('updateRes') }}" method="get">
                         <input type="hidden" name="idRes" id="idRes" value='{{resumen["id"]}}'>
-                        <input type="submit" value="Actualizar">
+                        <input id="resumen-button" type="submit" value="Actualizar">
+                    </form>
+                    <form action="{{ url_for('verRes') }}" method="get">
+                        <input type="hidden" name="idRes" id="idRes" value='{{resumen["id"]}}'>
+                        <input id="resumen-button" type="submit" value="Ver Resumen">
                     </form>
                 </td>
             </tr>

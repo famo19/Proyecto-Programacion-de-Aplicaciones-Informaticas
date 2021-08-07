@@ -2429,11 +2429,11 @@ a:hover {
 
 .flex-container-lib>div {
   margin: 10px;
-	background: white;
-	font-family: sans-serif;
-	font-weight: 100;
+  background: white;
+  font-family: sans-serif;
+  font-weight: 100;
   position: static;
-	/**top: 100%;
+  /**top: 100%;
 	left: 100%;
 	transform: translate(-100%, -100%);**/
 }
@@ -2443,15 +2443,15 @@ a:hover {
   width: 100%;
   background: linear-gradient(45deg, #49a09d, #5f2c82);
   border-collapse: collapse;
-	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 #libTable td,
 #libTable th {
   padding: 15px;
-	background-color: rgba(255,255,255,0.2);
-	color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
 
 }
 
@@ -2474,21 +2474,22 @@ a:hover {
 }
 
 #libTable tr:hover {
-	background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
-	
-#libTable	td {
-	position: relative;}
 
-#libTable	td:hover::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: -9999px;
-	bottom: -9999px;
-	background-color: rgba(255,255,255,0.2);
-	z-index: -1;
+#libTable td {
+  position: relative;
+}
+
+#libTable td:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
 }
 
 /** LIBRERIA FIN*/
@@ -2506,9 +2507,9 @@ a:hover {
 
 .flex-container>div {
   margin: 10px;
-	background: white;
-	font-family: sans-serif;
-	font-weight: 100;
+  background: white;
+  font-family: sans-serif;
+  font-weight: 100;
   position: static;
 }
 
@@ -2517,15 +2518,15 @@ a:hover {
   width: 100%;
   background: linear-gradient(45deg, #49a09d, #5f2c82);
   border-collapse: collapse;
-	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 #hTable td,
 #hTable th {
   padding: 15px;
-	background-color: rgba(255,255,255,0.2);
-	color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
 
 /**#hTable tr:nth-child(even) {
@@ -2548,21 +2549,22 @@ a:hover {
 }
 
 #hTable tr:hover {
-	background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
-	
-#hTable	td {
-	position: relative;}
 
-#hTable	td:hover::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: -9999px;
-	bottom: -9999px;
-	background-color: rgba(255,255,255,0.2);
-	z-index: -1;
+#hTable td {
+  position: relative;
+}
+
+#hTable td:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
 }
 
 .hdiv {
@@ -2572,8 +2574,8 @@ a:hover {
 /** HIGLIGHTS FIN */
 
 /** Api */
-.api-subscription{
-  background: linear-gradient(45deg, #49a09d, #5f2c82); 
+.api-subscription {
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
   margin: 100px;
   color: white;
 }
@@ -2597,6 +2599,7 @@ a:hover {
   margin: auto;
   margin-top: 15px;
 }
+
 /** api end */
 
 /** BOOK INICIO **/
@@ -2649,7 +2652,7 @@ a:hover {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 100%;
   height: max-content;
@@ -2658,15 +2661,16 @@ a:hover {
 .info-container {
   padding: 2px 16px;
 }
+
 /** BOOK FIN */
 
 /** Dashboard Inicio */
-.flex-container-buscar{
+.flex-container-buscar {
   display: flex;
   justify-content: center;
 }
 
-.flex-container-buscar > div{
+.flex-container-buscar>div {
   width: 100%;
   margin: 30px;
   text-align: center;
@@ -2684,11 +2688,12 @@ a:hover {
   border-collapse: collapse;
   width: 100%;
   justify-content: center;
-  border-collapse:separate;
-  border-spacing:5px 5px;
+  border-collapse: separate;
+  border-spacing: 5px 5px;
 }
 
-#busquedaTable td, #busquedaTable th {
+#busquedaTable td,
+#busquedaTable th {
   border: #f2f2f2;
   padding: 8px;
   font-size: medium;
@@ -2698,11 +2703,11 @@ a:hover {
   border-bottom-left-radius: 30px;
 }
 
-#busquedaTable tr:nth-child(even){
+#busquedaTable tr:nth-child(even) {
   background-color: #d0ffd0ef;
 }
 
-#busquedaTable tr:nth-child(odd){
+#busquedaTable tr:nth-child(odd) {
   background-color: #d3f8ff;
 }
 
@@ -2720,12 +2725,13 @@ a:hover {
   width: 100%;
 }
 
-.inputSearch{
+.inputSearch {
   border-radius: 30px;
   min-height: auto;
   font-size: 20px;
-  
+
 }
+
 /** Dashboard cliente fin*/
 
 /** Usuarios */
@@ -2740,14 +2746,15 @@ a:hover {
   margin: 0rem 0rem 1rem 4rem;
 }
 
-.div_button{
+.div_button {
   margin-top: 1.3rem;
 }
 
-.backDashboard{
+.backDashboard {
   margin-bottom: 1rem;
 }
-.trash-btn{
+
+.trash-btn {
   background: #ff6f47;
   color: black;
   border: none;
@@ -2759,12 +2766,26 @@ a:hover {
 /** Fin Usuarios */
 
 /** CATEGORÍAS **/
-#categoriasdiv{
+#categoriasdiv {
   padding: 2%;
 }
 
 #cat {
   margin-left: 2%;
+  width: 25%;
+  outline: none;
+  border: 2px solid #2d314d;
+  background: none;
+  padding: 0.6rem 1.2rem;
+  color: #2d314d;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+#deleteCat {
   width: 25%;
   outline: none;
   border: 2px solid #2d314d;
@@ -2825,6 +2846,7 @@ a:hover {
 #catTable tr:hover {
   background-color: #ddd;
 }
+
 /** CATEGORIAS FIN **/
 
 /** RESUMEN INICIO **/
@@ -2913,6 +2935,7 @@ a:hover {
 }
 
 #content {
+  margin-left: 2%;
   margin-top: 0.25%;
   width: 25%;
   outline: none;
@@ -2960,7 +2983,7 @@ a:hover {
   margin: 0;
 }
 
-#resumeTable{
+#resumeTable {
   table-layout: fixed;
 }
 
@@ -2971,7 +2994,7 @@ a:hover {
 
 }
 
-#resumeTable td{
+#resumeTable td {
   word-wrap: break-word;
 }
 
@@ -2984,11 +3007,11 @@ a:hover {
   width: 100%;
 }
 
-.inputSearch{
+.inputSearch {
   border-radius: 30px;
   min-height: auto;
   font-size: 20px;
-  
+
 }
 
 
@@ -2998,6 +3021,21 @@ a:hover {
 
 #resumeTable tr:hover {
   background-color: #ddd;
+}
+
+#deleteRes {
+  margin-left: 2%;
+  width: 25%;
+  outline: none;
+  border: 2px solid #2d314d;
+  background: none;
+  padding: 0.6rem 1.2rem;
+  color: #2d314d;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 25px;
+  transition: 0.3s;
 }
 
 
@@ -3013,7 +3051,7 @@ a:hover {
   border-color: white;
 }
 
-.flex-container-buscar > div {
+.flex-container-buscar>div {
   width: 100%;
   margin: 30px;
   text-align: center;
@@ -3025,7 +3063,8 @@ a:hover {
   border-bottom-left-radius: 30px;
   border: none;
 }
-.flex-container-solicitudes > div {
+
+.flex-container-solicitudes>div {
   width: 100%;
   margin: 30px;
   text-align: center;
@@ -3049,11 +3088,12 @@ a:hover {
   border-collapse: collapse;
   width: 95%;
   justify-content: center;
-  border-collapse:separate;
-  border-spacing:5px 5px;
+  border-collapse: separate;
+  border-spacing: 5px 5px;
 }
 
-#busquedaTable td, #busquedaTable th {
+#busquedaTable td,
+#busquedaTable th {
   border: #f2f2f2;
   padding: 8px;
   font-size: medium;
@@ -3063,7 +3103,8 @@ a:hover {
   border-bottom-left-radius: 30px;
 }
 
-#reqTable td, #reqTable th {
+#reqTable td,
+#reqTable th {
   border: #f2f2f2;
   padding: 8px;
   font-size: medium;
@@ -3073,11 +3114,11 @@ a:hover {
   border-bottom-left-radius: 30px;
 }
 
-#busquedaTable tr:nth-child(even){
+#busquedaTable tr:nth-child(even) {
   background-color: #d0ffd0ef;
 }
 
-#busquedaTable tr:nth-child(odd){
+#busquedaTable tr:nth-child(odd) {
   background-color: #d3f8ff;
 }
 
@@ -3086,12 +3127,13 @@ a:hover {
   color: white;
 
 }
-#reqTable tr:nth-child(even){
+
+#reqTable tr:nth-child(even) {
   background-color: #d0ffd0ef;
 
 }
 
-#reqTable tr:nth-child(odd){
+#reqTable tr:nth-child(odd) {
   background-color: #d3f8ff;
 }
 
@@ -3108,6 +3150,7 @@ a:hover {
   background-color: #2d314d;
   color: white;
 }
+
 #reqTable th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -3116,16 +3159,17 @@ a:hover {
   color: white;
 }
 
-.inputSearch{
+.inputSearch {
   border-radius: 30px;
   min-height: auto;
   font-size: 20px;
-  
+
 }
+
 /** Dashboard admin fin*/
 
 /* LOGIN INICIO*/
-#user{
+#user {
   margin-top: 0.25%;
   width: 25%;
   outline: none;
@@ -3140,7 +3184,7 @@ a:hover {
   transition: 0.3s;
 }
 
-#passw{
+#passw {
   margin-top: 0.25%;
   width: 25%;
   outline: none;
@@ -3154,10 +3198,11 @@ a:hover {
   border-radius: 25px;
   transition: 0.3s;
 }
+
 /* LOGIN FIN*/
 
 /*REGISTRATION INICIO*/
-#user_reg{
+#user_reg {
   margin-top: 0.25%;
   width: 25%;
   outline: none;
@@ -3172,7 +3217,7 @@ a:hover {
   transition: 0.3s;
 }
 
-#passw_reg{
+#passw_reg {
 
   margin-top: 0.25%;
   width: 25%;
@@ -3187,4 +3232,5 @@ a:hover {
   border-radius: 25px;
   transition: 0.3s;
 }
+
 /*REGISTRATION FIN*/

@@ -72,10 +72,18 @@ class ResumenRoutes:
                 adminDict = adminLogic.getRowByAdmin(
                     session["login_admin"])
                 idAdmin = adminDict["id"]
-                idCat = request.form["cat"]
+                idCat = int(request.form["cat"])
                 idRes = int(request.form["idResu"])
                 # Mandando datos a database
                 rows = resLogic.updateRes(
                     titulo, sinopsis, recomendacion, infoAutor, contenido, idAdmin, idCat, idRes)
                 accion = "actualizó"
                 return render_template("done.html", accion=accion, rows=rows)
+
+        @ app.route("/resumen/ver", methods=["GET", "POST"])
+        def verRes():
+            if request.method == "GET":
+                # Iniciar logica
+                resLogic = ResumenLogic()
+                resumen = resLogic.getResumenById(request.args["idRes"])
+                return render_template("verResumen.html", resumen=resumen)
