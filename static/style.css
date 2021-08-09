@@ -3315,3 +3315,65 @@ a:hover {
 }
 
 /*REGISTRATION FIN*/
+
+/* card confirm */
+.card__image {
+  position: relative;
+  background-image: url("/static/images/diamond.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 17.5rem;
+}
+
+@media (min-width: 40em) {
+  .card__image {
+    min-height: 25rem;
+    background-position: center 70%;
+  }
+}
+
+@media (min-width: 64em) {
+  .card__image {
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    height: 41rem;
+    background-image: none;
+  }
+}
+
+@media (min-width: 64em) {
+  .card__image::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    background-image: url("/static/images/diamond.jpg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    width: 150%;
+    background-size: 122%;
+    background-position: 220% 83%;
+  }
+}
+
+@media (min-width: 40em) {
+  .card__image::after {
+    background-size: 52%;
+  }
+}
+
+@media (min-width: 64em) {
+  .card__image::after {
+    width: 120%;
+    height: 122%;
+    background-size: 94%;
+    background-position: center 150%;
+    left: 22%;
+  }
+}
+
+/* card confirm end */
