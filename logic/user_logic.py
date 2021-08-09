@@ -35,3 +35,13 @@ class UserLogic(PybaLogic):
             return result[0]
         else:
             return []
+    
+    def updatePassword(self, password, salt, id):
+        database = self.createDatabaseObj()
+        sql = (
+            "UPDATE `user` SET "
+            + f"`password`='{password}', `salt`='{salt}'"
+            + f"where `id` like '{id}';"
+        )
+        rows = database.executeNonQueryRows(sql)
+        return rows

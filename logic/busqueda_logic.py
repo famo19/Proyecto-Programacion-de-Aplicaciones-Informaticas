@@ -19,7 +19,7 @@ class BusquedaLogic(PybaLogic):
     def getAllCats(self):
         database = self.createDatabaseObj()
         sql = (
-            "SELECT id, nombre, idUsuario FROM categories;"
+            "SELECT `id`, `nombre`, `idUsuario` FROM `categories`;"
         )
         result = database.executeQuery(sql)
         if len(result) > 0:
