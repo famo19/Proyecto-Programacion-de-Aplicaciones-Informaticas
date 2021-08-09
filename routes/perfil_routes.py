@@ -16,11 +16,12 @@ class PerfilRoutes:
                 user = logicUser.getRowByUser(username)
                 iduser = user["id"]
                 perfil = logic.getPerfil(iduser)
-                result = perfil[0]
                 if len(perfil) > 0:
+                    result = perfil[0]
                     return render_template("perfil.html",result=result)
                 else:
-                    return render_template("perfil.html")
+                    result = []
+                    return render_template("perfil.html",result=result)
 
             elif request.method == "POST":
                 logic = PerfilLogic()
