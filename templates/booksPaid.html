@@ -3,21 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highlights</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-    </style>
+    <title id = "titulo"></title>
 </head>
+
 <body>
     <header id="header" class="header">
-    <div class="overlay has-fade">
+      <div class="overlay has-fade">
 
-    </div>
+      </div>
 
-    <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+      <nav class="container container--pall flex flex-jc-sb flex-ai-c">
       <a href="/dashboard" class="header__logo">
         <img src="{{url_for('static', filename='images/logo-Blinkist.png')}}" alt="Blinkist" />
       </a>
@@ -47,33 +45,78 @@
       </div>
     </header>
 
+    <br>
+    <div class="rectangle"></div>
+    <br>
+    <h1 id = "tituloH1" style="text-align: center">{{ result["titulo"] }}</h1>
+    <div class="rectangle"></div>
+    <div class="api-subscription">
+      <div>
+        <h2>Opciones de lectura</h2>
+        <div class="rectangle-api"></div>
+        <p style="margin: 15px;">Disfruta del contenido de este libro completo en PDF y en audio.</p>
+        <a href="{{ linkpdf }}" class="button"> PDF </a>
+        <a href="{{ linkaudio }}" class="button"> Audio </a>
+      </div>
+    </div>
+    <div class="container-book">
+      <div class="row">
+      <div class="column" style="width: 20%;">
+        <h2 style="margin-bottom: 0%;"> Sinopsis </h2>
+        <div class="rectangle-sinopsis"></div>
+      </div>
+      <div class="column">
+        <p style="margin-top: 25px;" id = "sinopsis">{{ result["sinopsis"] }}</p> 
+      </div> 
+      </div> 
     </div>
 
-    <div class="flex-container">
-        <div>
-            <h1 style="text-align: center;"> Tus highlights </h1>
-            <table id="hTable" style="width:100%" border="0">
-                <tr>
-                    <th style="width:25%">Libro</th>  
-                    <th style="width:40%">Texto resaltado</th>
-                    <th style="width:40%">Notas</th>   
-                    <th></th>
-                    <th></th>
-                </tr>
-                {% for element in result%}
-                <tr>
-                    <td>{{ element["titulo"] }}</td>
-                    <td>{{ element["texto"] }}</td>
-                    <td>{{ element["notas"] }}</td>
-                    <td><a class="button" onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>
-                    <td><a class="button" onclick="highlightSelectedToDelete(this.id)" id="{{ element["texto"] }}">Eliminar Highlight</a></td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
-    </div>
     
-    <br><br>
+
+    <div class = "container-book">
+            <div class="column-3">
+              <div class="card" style="text-align: center;">
+                <img style="height: 70px;" src="{{url_for('static', filename='images/categoria.PNG')}}" alt="book-part">
+                <div class="info-container">
+                  <h2> Categoría </h2>
+                  <p id = "categoria">{{ categoria["nombre"] }}</p> 
+                </div>
+              </div>
+            </div>
+            
+            <div class="column-3">
+              <div class="card" style="text-align: center;">
+                <img style="height: 70px;" src="{{url_for('static', filename='images/recomendacion.PNG')}}" alt="book-part">
+                <div class="info-container"> 
+                  <h2> Recomendación </h2>
+                  <p id = "recomendacion">{{ result["recomendación"] }}</p> 
+                </div>
+              </div>
+            </div>
+            <div class="column-3">
+              <div class="card" style="text-align: center;">
+                <img style="height: 70px;" src="{{url_for('static', filename='images/autor.PNG')}}" alt="book-part">
+                <div class="info-container">
+                  <h2> Información del autor </h2>
+                  <p id = "infoAutor">{{ result["informacionDelAutor"] }}</p> 
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <br>
+    <div class="container-book">
+        <h2> Resumen </h2>
+        <p id = "contenido">{{ result["contenido"] }}</p>
+    </div>
+    <br>
+    
+    <div>
+        <button class="button" onclick="addBook()" style="margin-left: 100px"> Agregar a la librería </button>
+        <button class="button" onclick="getSelectionText()"> Resaltar texto </button>
+    </div>
+    <br>
+    
 
     <footer id="footer" class="footer">
     <div class="container">
@@ -104,8 +147,10 @@
 
     </div>    
     </footer>
-<script src="https://www.w3schools.com/lib/w3.js"></script>
-<script src="{{url_for('static', filename='script.js')}}"></script>
-</body>
 
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+    
+</body>
 </html>

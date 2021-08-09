@@ -15,7 +15,10 @@ class DashboardRoutes:
 
         @app.route("/dashboard_cliente")
         def dashboard_cliente():
-            return render_template("dashboard_cliente.html")
+            if session["userAccount"] == "gratis":
+                return render_template("dashboard_cliente.html")
+            elif session["userAccount"] == "premium":
+                return render_template("dashboard_clientePremium.html")
 
         @app.route("/dashboard_admin")
         def dashboard_admin():
