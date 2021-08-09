@@ -91,9 +91,8 @@
         <br>
         <table id="busquedaTable" style="width:100%">
             <tr>
-                <th style="width: 10%">Titulo</th>
+                <th style="width: 15%">Titulo</th>
                 <th>Sinopsis</th>
-                <th style="width: 10%">Categoria</th>
                 <th>Recomendacion</th>
                 <th>Informacion del autor</th>
             </tr>
@@ -101,7 +100,6 @@
                 <tr>
                     <td>{{ element["titulo"] }}</td>
                     <td>{{ element["sinopsis"] }}</td>
-                    <td>{{ element["idCategoria"] }}</td>
                     <td>{{ element["recomendación"] }}</td>
                     <td>{{ element["informacionDelAutor"] }}</td>
                     <td><a class="button" onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>
