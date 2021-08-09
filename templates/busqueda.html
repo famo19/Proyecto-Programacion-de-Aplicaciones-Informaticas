@@ -59,6 +59,8 @@
         <div>
             <form action="{{ url_for('buscar') }}" method="post">
                 <h2> <label for="titulo"> Buscar por nombre: </label> </h2>
+                <label for=""><b>Escriba el titulo completo</b></label>
+                <br><br>
                 <input type="text" name="titulo" id="titulo" value="titulo" class="inputSearch" style="width: 80%; margin-left: 5px;">
                 <br>
                 <input class="button" type="submit" value="Buscar">
@@ -99,7 +101,7 @@
                 <tr>
                     <td>{{ element["titulo"] }}</td>
                     <td>{{ element["sinopsis"] }}</td>
-                    <td></td>
+                    <td>{{ element["idCategoria"] }}</td>
                     <td>{{ element["recomendación"] }}</td>
                     <td>{{ element["informacionDelAutor"] }}</td>
                     <td><a class="button" onclick="bookSelected(this.id)" id="{{ element["titulo"] }}">Ir al Libro</a></td>

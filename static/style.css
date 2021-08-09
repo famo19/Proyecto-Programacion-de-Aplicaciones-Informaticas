@@ -2763,7 +2763,7 @@ a:hover {
   border-bottom-left-radius: 30px;
   border: none;
 }
-
+/**
 #busquedaTable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -2805,6 +2805,47 @@ a:hover {
   color: white;
   width: 100%;
 }
+**/
+#busquedaTable {
+  width: 100%;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#busquedaTable td,
+#busquedaTable th {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgb(255, 255, 255);
+
+}
+
+#busquedaTable th {
+  text-align: left;
+  background-color: #55608f;
+}
+
+#busquedaTable tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#busquedaTable td {
+  position: relative;
+}
+
+#busquedaTable td:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
 
 .inputSearch {
   border-radius: 30px;
@@ -3132,18 +3173,6 @@ a:hover {
   border-color: white;
 }
 
-.flex-container-buscar>div {
-  width: 100%;
-  margin: 30px;
-  text-align: center;
-  line-height: 25px;
-  font-size: 18px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border: none;
-}
 
 .flex-container-solicitudes>div {
   width: 100%;
@@ -3158,11 +3187,6 @@ a:hover {
   border: none;
 }
 
-#busquedaTable {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
 
 #reqTable {
   font-family: Arial, Helvetica, sans-serif;
@@ -3173,16 +3197,7 @@ a:hover {
   border-spacing: 5px 5px;
 }
 
-#busquedaTable td,
-#busquedaTable th {
-  border: #f2f2f2;
-  padding: 8px;
-  font-size: medium;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
+
 
 #reqTable td,
 #reqTable th {
@@ -3195,19 +3210,6 @@ a:hover {
   border-bottom-left-radius: 30px;
 }
 
-#busquedaTable tr:nth-child(even) {
-  background-color: #d0ffd0ef;
-}
-
-#busquedaTable tr:nth-child(odd) {
-  background-color: #d3f8ff;
-}
-
-#busquedaTable tr:hover {
-  background-color: #31d35c;
-  color: white;
-
-}
 
 #reqTable tr:nth-child(even) {
   background-color: #d0ffd0ef;
@@ -3221,14 +3223,6 @@ a:hover {
 /** */
 #reqTable tr:hover {
   background-color: #31d35c;
-  color: white;
-}
-
-#busquedaTable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #2d314d;
   color: white;
 }
 
