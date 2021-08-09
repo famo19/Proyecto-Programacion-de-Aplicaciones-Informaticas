@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <title>Registration form</title>
+    <title>Formulario de Registro</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
@@ -27,8 +27,8 @@
       -->
             <div class="intro-btn hide-for-mobile">
                 <div class="cta">
-                    <a href="{{ url_for('login') }}" class="button header__cta">Login</a>
-                    <a href="{{ url_for('home') }}" class="button header__cta">Home</a>
+                    <a href="{{ url_for('login') }}" class="button header__cta">Iniciar sesión</a>
+                    <a href="{{ url_for('home') }}" class="button header__cta">Inicio</a>
                 </div>
             </div>
 
@@ -39,30 +39,30 @@
                 </a>
                 <ul class="menu">
                     <li><a class="menuLink" href="{{ url_for('home') }}">Inicio</a></li>
-                    <li><a class="menuLink" href="{{ url_for('login') }}">Login</a></li>
+                    <li><a class="menuLink" href="{{ url_for('login') }}">Iniciar Sesión</a></li>
                 </ul>
             </div>
     </header>
-    <h1>Registration form</h1>
+    <h1>Formulario de registro</h1>
     <hr>
 
     <div class="container">
         <form action="{{ url_for('register') }}" method="post">
-            <label for="user">user:</label><br>
+            <label for="user">Usuario:</label><br>
             <input type="text" name="user" id="user">
             <br><br>
-            <label for="email">email:</label><br>
+            <label for="email">Correo:</label><br>
             <input type="email" name="email" id="email">
             <br><br>
-            <label for="password">password:</label><br>
+            <label for="password">Contraseña:</label><br>
             <input type="password" name="password" id="password">
             <br><br>
-            <label for="confpassword">confirm password:</label><br>
+            <label for="confpassword">Confirma tu contraseña</label><br>
             <input type="password" name="confpassword" id="confpassword">
             <br><br>
             <div class="g-recaptcha" data-sitekey="6LdPY4cbAAAAABbKsagqd2i-w1PMyyAf8ttGvJWc"></div>
             <br><br>
-            <input type="submit" value="Register">
+            <input class="button" type="submit" value="Registrarme">
     
         </form>
     </div>
@@ -70,7 +70,7 @@
     <br>
 
     <div class="container">
-        <a href="{{url_for('login')}}">go to login</a>
+        <a href="{{url_for('login')}}">Ir a Inicio</a>
     </div>
 
     <br><br><br><br><br><br><br><br>

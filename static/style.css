@@ -3274,10 +3274,11 @@ a:hover {
   transition: 0.3s;
 }
 
+
 /* LOGIN FIN*/
 
 /*REGISTRATION INICIO*/
-#user_reg {
+#user {
   margin-top: 0.25%;
   width: 25%;
   outline: none;
@@ -3292,7 +3293,7 @@ a:hover {
   transition: 0.3s;
 }
 
-#passw_reg {
+#password {
 
   margin-top: 0.25%;
   width: 25%;
@@ -3307,6 +3308,56 @@ a:hover {
   border-radius: 25px;
   transition: 0.3s;
 }
+
+#email {
+  margin-top: 0.25%;
+  width: 25%;
+  outline: none;
+  border: 2px solid #2d314d;
+  background: none;
+  padding: 0.6rem 1.2rem;
+  color: #2d314d;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+#confpassword {
+  margin-top: 0.25%;
+  width: 25%;
+  outline: none;
+  border: 2px solid #2d314d;
+  background: none;
+  padding: 0.6rem 1.2rem;
+  color: #2d314d;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  border-color: white;
+}
+
+
+.flex-container>div {
+  width: 100%;
+  margin: 30px;
+  text-align: center;
+  line-height: 25px;
+  font-size: 18px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: none;
+}
+
 
 /*REGISTRATION FIN*/
 
