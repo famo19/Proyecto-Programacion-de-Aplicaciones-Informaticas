@@ -10,7 +10,18 @@ class PerfilRoutes:
         @app.route("/perfil", methods=["GET", "POST"])
         def perfil():
             if request.method == "GET":
-                return render_template("perfil.html")
+                logic = PerfilLogic()
+                logicUser = UserLogic()
+                username = session['login_user']
+                user = logicUser.getRowByUser(username)
+                iduser = user["id"]
+                perfil = logic.getPerfil(iduser)
+                result = perfil[0]
+                if len(perfil) > 0:
+                    return render_template("perfil.html",result=result)
+                else:
+                    return render_template("perfil.html")
+
             elif request.method == "POST":
                 logic = PerfilLogic()
                 selectedNombre = request.form["nombre"]
@@ -20,5 +31,9 @@ class PerfilRoutes:
                 username = session['login_user']
                 user = logicUser.getRowByUser(username)
                 userId = user["id"]
-                result = logic.insertPerfil(selectedNombre, selectedEdad, selectedPais, userId)
-                return render_template("perfil.html")
+                perfil = logic.getPerfil(userId)
+                if len(perfil) > 0:
+                    result = logic.updatePerfil(selectedNombre, selectedEdad, selectedPais, userId)
+                else:
+                    result = logic.insertPerfil(selectedNombre, selectedEdad, selectedPais, userId)
+                return redirect("/perfil")
