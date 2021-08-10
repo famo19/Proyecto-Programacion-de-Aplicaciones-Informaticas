@@ -56,3 +56,13 @@ class UserLogic(PybaLogic):
         )
         rows = database.executeNonQueryRows(sql)
         return rows
+    
+    #Eliminar Usuarios
+    def deleteUser(self, id):
+        database = self.createDatabaseObj()
+        sql = sql = (
+            "DELETE FROM `user` "
+            + f"WHERE id={id};"
+        )
+        rows = database.executeNonQueryRows(sql)
+        return rows
