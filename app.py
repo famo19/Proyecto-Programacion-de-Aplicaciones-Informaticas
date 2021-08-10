@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from routes.main_routes import MainRoutes
 from routes.libreria_routes import LibreriaRoutes
 from routes.dashboard_routes import DashboardRoutes
 from routes.busqueda_routes import BusquedaRoutes
@@ -17,6 +18,7 @@ import bcrypt
 app = Flask(__name__)
 app.secret_key = "1secret2key3!+"
 
+MainRoutes.configure_routes(app)
 LibreriaRoutes.configure_routes(app)
 HighlightRoutes.configure_routes(app)
 RegisterRoutes.configure_routes(app)
@@ -30,11 +32,6 @@ RequestRoutes.configure_routes(app)
 PasswordRoutes.configure_routes(app)
 CardRoutes.configure_routes(app)
 UserRoutes.configure_routes(app)
-
-@app.route("/")
-def home():
-    return render_template("index.html")
-
 
 @app.route("/usuarios")
 def usuarios():
