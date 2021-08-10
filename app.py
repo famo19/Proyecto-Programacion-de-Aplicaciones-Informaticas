@@ -37,16 +37,9 @@ UserRoutes.configure_routes(app)
 def usuarios():
     return render_template("usuarios.html")
 
-
-@app.route("/resumen")
-def resumen():
-    return render_template("resumen.html")
-
-
 @app.route("/requestView")
 def requestView():
     return render_template("manejosolicitudes.html")
-
 
 @app.route("/modify")
 def modify():
