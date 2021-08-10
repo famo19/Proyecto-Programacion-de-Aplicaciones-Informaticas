@@ -4,6 +4,17 @@ from core.pyba_logic import PybaLogic
 class UserLogic(PybaLogic):
     def __init__(self):
         super().__init__()
+    
+    def getAllUsers(self):
+        database = self.createDatabaseObj()
+        sql = (
+            "SELECT * FROM user;"
+        )
+        result = database.executeQuery(sql)
+        if len(result) > 0:
+            return result
+        else:
+            return []
 
     def insertUser(self, userName, userEmail, password, salt):
         database = self.createDatabaseObj()
@@ -42,6 +53,16 @@ class UserLogic(PybaLogic):
             "UPDATE `user` SET "
             + f"`password`='{password}', `salt`='{salt}'"
             + f"where `id` like '{id}';"
+        )
+        rows = database.executeNonQueryRows(sql)
+        return rows
+    
+    #Eliminar Usuarios
+    def deleteUser(self, id):
+        database = self.createDatabaseObj()
+        sql = sql = (
+            "DELETE FROM `user` "
+            + f"WHERE id={id};"
         )
         rows = database.executeNonQueryRows(sql)
         return rows

@@ -24,10 +24,10 @@
           </a>
 
           <div class="header__links hide-for-mobile">
-            <a href="{{ url_for('categories') }}">Categorías</a>
-            <a href="{{ url_for('resumen') }}">Resumenes</a>
-            <a href="{{ url_for('usuarios') }}">Usuarios</a>
-            <a href="{{ url_for('requestView') }}">Solicitudes</a>
+                <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
+                <a href="{{ url_for('createUser') }}">Usuarios</a>
+                <a href="{{ url_for('requestView') }}">Solicitudes</a>
 
           </div>
 
@@ -43,10 +43,10 @@
             </a>
 
             <ul class="menu">
-              <li><a class="menuLink" href="{{ url_for('categories') }}">Categorías</a></li>
-              <li><a class="menuLink" href="{{ url_for('resumen') }}">Resumenes</a></li>
-              <li><a class="menuLink" href="{{ url_for('usuarios') }}">Usuarios</a></li>
-              <li><a class="menuLink" href="{{ url_for('requestView') }}">Solicitudes</a></li>
+              <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
+                <a href="{{ url_for('createUser') }}">Usuarios</a>
+                <a href="{{ url_for('requestView') }}">Solicitudes</a>
             </ul>
 
           </div>
@@ -54,17 +54,46 @@
         </nav>
       </header>
     <div class="center">
-        <h1>User administrador</h1>
-    </div>
-    <div class="div_button center">
-        <button onclick="view()" class="button">View Users</button>
+        <h1>Administrador de usuarios</h1>
     </div>
 
+    <!--INICIO--> 
+    <div id="usuariosdiv">
+<!--
+      <form action="{{ url_for('createUser') }}" method="post">
+          <input type="text" name="us" id="us" placeholder="Escriba aquí el nuevo usuario">
+          <input id="resumen-button" type="submit" value="Enviar">
+      </form>
+ -->
+      <!--<a id="resumen-button" href="{{ url_for('deleteUser') }}">Eliminar usuario</a> -->
+      <br>
 
-    <div class="flex-container">
-        <div id="table" class="table center"></div>
-    </div>
+      <div>
+          <br><br>
+          <table id="catTable" style="width:50%" border="1">
+              <tr>
+                  <th>ID</th>
+                  <th>Username</th>
+                  <th>User Email</th>
+                  <th>Password</th>
+                  <th>Salt</th>
 
+              </tr>
+              {% for usuario in usuarios %}
+              <tr>
+                  <td>{{usuario["id"]}}</td>
+                  <td>{{usuario["user_name"]}}</td>
+                  <td>{{usuario["user_email"]}}</td>
+                  <td>{{usuario["password"]}}</td>
+                  <td>{{usuario["salt"]}}</td>
+              </tr>
+              {% endfor %}
+          </table>
+      </div>
+
+
+  </div>
+<!--FIN-->
 
     <br>
 
@@ -82,9 +111,9 @@
           </div>
 
               <div class="footer__links col1">
-                <a href="{{ url_for('categories') }}">Categorías</a>
-                <a href="{{ url_for('resumen') }}">Resumenes</a>
-                <a href="{{ url_for('usuarios') }}">Usuarios</a>
+                <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
+                <a href="{{ url_for('createUser') }}">Usuarios</a>
                 <a href="{{ url_for('requestView') }}">Solicitudes</a>
 
               </div>
