@@ -5,6 +5,7 @@ from logic.resumen_logic import ResumenLogic
 from logic.categorias_logic import CategoriasLogic
 import requests
 
+
 class LibreriaRoutes:
     @staticmethod
     def configure_routes(app):
@@ -25,13 +26,13 @@ class LibreriaRoutes:
             session["viewingBook"] = titulo
             result = logic.getLibroByTitle(titulo)
             idCat = result["idCategoria"]
-            #Sacando categoría
+            # Sacando categoría
             logicCate = CategoriasLogic()
             categoria = logicCate.getCatById(idCat)
             if session["userAccount"] == "gratis":
                 return render_template("booksFree.html", result=result, categoria=categoria)
             elif session["userAccount"] == "premium":
-                #link para pdf y audio
+                # link para pdf y audio
                 urlpdf = f"https://esen-restapi.herokuapp.com/pdf/{titulo}"
                 urlaudio = f"https://esen-restapi.herokuapp.com/audio/{titulo}"
                 responsepdf = requests.get(urlpdf)
@@ -49,7 +50,7 @@ class LibreriaRoutes:
 
         @app.route("/libreria/books/addedBook")
         def addBook():
-            #sacar datos del current viewing book
+            # sacar datos del current viewing book
             titulo = session["viewingBook"]
             logicResumen = ResumenLogic()
             resumen = logicResumen.getResumenByTitle(titulo)
@@ -59,14 +60,15 @@ class LibreriaRoutes:
             informacionDelAutor = resumen["informacionDelAutor"]
             contenido = resumen["contenido"]
             idCategoria = resumen["idCategoria"]
-            #sacar id del usuario
+            # sacar id del usuario
             logicUser = UserLogic()
             username = session['login_user']
             user = logicUser.getRowByUser(username)
             userId = user["id"]
-            #insertar el libro en la bd
+            # insertar el libro en la bd
             logicBook = LibreriaLogic()
-            rows = logicBook.insertBook(titulo,sinopsis,recomendacion,informacionDelAutor,contenido,userId,idCategoria,idResumen)
+            rows = logicBook.insertBook(
+                titulo, sinopsis, recomendacion, informacionDelAutor, contenido, userId, idCategoria, idResumen)
             return redirect("/libreria")
 
         @app.route("/libreria/deleteBooks/<string:titulo>")
@@ -82,7 +84,7 @@ class LibreriaRoutes:
         """API ROUTES"""
         @app.route("/libreria/books/pdf")
         def pdfBook():
-            #sacar datos del current viewing book
+            # sacar datos del current viewing book
             titulo = session["viewingBook"]
             url = f"https://esen-restapi.herokuapp.com/audio/{titulo}"
             response = requests.get(url)
