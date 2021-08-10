@@ -31,13 +31,13 @@ class UserRoutes:
         @ app.route("/usuario/delete", methods=["GET", "POST"])
         def deleteUser():
             if request.method == "GET":
-                return render_template("categoriesDelete.html")
+                return render_template("usuarioDelete.html")
             elif request.method == "POST":
                 # Iniciar logica
-                catLogic = CategoriasLogic()
+                userLogic = UserLogic()
                 # Obtener datos del form
-                idCat = int(request.form["deleteCat"])
+                idUser = int(request.form["deleteUser"])
                 # Mandando datos a database
-                rows = catLogic.deleteCat(idCat)
+                rows = userLogic.deleteUser(idUser)
                 accion = "eliminó"
                 return render_template("done.html", accion=accion, rows=rows)
