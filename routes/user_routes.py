@@ -3,6 +3,7 @@ from logic.admin_logic import AdminLogic
 from logic.categorias_logic import CategoriasLogic
 from logic.resumen_logic import ResumenLogic
 from logic.user_logic import UserLogic
+import bcrypt
 import requests
 
 class UserRoutes:
@@ -40,4 +41,25 @@ class UserRoutes:
                 # Mandando datos a database
                 rows = userLogic.deleteUser(idUser)
                 accion = "eliminó"
+                return render_template("done.html", accion=accion, rows=rows)
+
+        @ app.route("/usuario/update", methods=["GET", "POST"])
+        def updateUser():
+            if request.method == "GET":
+                return render_template("usuarioUpdate.html")
+            elif request.method == "POST":
+                # Iniciar logica
+                userLogic = UserLogic()
+                # Obtener datos del form
+                idUser = int(request.form["updateUser"])
+                contraUser = request.form["contra"]
+
+                salt = bcrypt.gensalt(rounds=14)
+                strSalt = salt.decode("utf-8")
+                encPassword = contraUser.encode("utf-8")
+                hashPassword = bcrypt.hashpw(encPassword, salt)
+                strPassword = hashPassword.decode("utf-8")
+                # Mandando datos a database
+                rows = userLogic.updatePassword(strPassword,strSalt, idUser)
+                accion = "modifico"
                 return render_template("done.html", accion=accion, rows=rows)
