@@ -11,6 +11,7 @@ from routes.resumen_routes import ResumenRoutes
 from routes.request_routes import RequestRoutes
 from routes.password_routes import PasswordRoutes
 from routes.card_routes import CardRoutes
+from routes.user_routes import UserRoutes
 import bcrypt
 
 app = Flask(__name__)
@@ -28,6 +29,7 @@ ResumenRoutes.configure_routes(app)
 RequestRoutes.configure_routes(app)
 PasswordRoutes.configure_routes(app)
 CardRoutes.configure_routes(app)
+UserRoutes.configure_routes(app)
 
 @app.route("/")
 def home():

@@ -24,10 +24,10 @@
           </a>
 
           <div class="header__links hide-for-mobile">
-            <a href="{{ url_for('categories') }}">Categorías</a>
-            <a href="{{ url_for('resumen') }}">Resumenes</a>
-            <a href="{{ url_for('usuarios') }}">Usuarios</a>
-            <a href="{{ url_for('requestView') }}">Solicitudes</a>
+                <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
+                <a href="{{ url_for('createUser') }}">Usuarios</a>
+                <a href="{{ url_for('requestView') }}">Solicitudes</a>
 
           </div>
 
@@ -43,10 +43,10 @@
             </a>
 
             <ul class="menu">
-              <li><a class="menuLink" href="{{ url_for('categories') }}">Categorías</a></li>
-              <li><a class="menuLink" href="{{ url_for('resumen') }}">Resumenes</a></li>
-              <li><a class="menuLink" href="{{ url_for('usuarios') }}">Usuarios</a></li>
-              <li><a class="menuLink" href="{{ url_for('requestView') }}">Solicitudes</a></li>
+              <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
+                <a href="{{ url_for('createUser') }}">Usuarios</a>
+                <a href="{{ url_for('requestView') }}">Solicitudes</a>
             </ul>
 
           </div>
@@ -82,9 +82,9 @@
           </div>
 
               <div class="footer__links col1">
-                <a href="{{ url_for('categories') }}">Categorías</a>
-                <a href="{{ url_for('resumen') }}">Resumenes</a>
-                <a href="{{ url_for('usuarios') }}">Usuarios</a>
+                <a href="{{ url_for('createCat') }}">Categorías</a>
+                <a href="{{ url_for('createRes') }}">Resumenes</a>
+                <a href="{{ url_for('createUser') }}">Usuarios</a>
                 <a href="{{ url_for('requestView') }}">Solicitudes</a>
 
               </div>
