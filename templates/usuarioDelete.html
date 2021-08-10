@@ -3,20 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin</title>
-    <h2></h2>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <style>
-        .attribution {
-            font-size: 11px;
-            text-align: center;
-        }
-
-        .attribution a {
-            color: hsl(228, 45%, 44%);
-        }
-    </style>
+    <title>Eliminar Usuario</title>
 </head>
 
 <body>
@@ -40,7 +30,6 @@
             <div class="intro-btn hide-for-mobile">
                 <div class="cta">
                     <a href="{{ url_for('login') }}" class="button header__cta" onclick="logOut()">Cerrar sesión</a>
-
                 </div>
             </div>
 
@@ -51,74 +40,24 @@
                 <ul class="menu">
                     <li><a class="menuLink" href="{{ url_for('createCat') }}">Categorías</a></li>
                     <li><a class="menuLink" href="{{ url_for('createRes') }}">Resumenes</a></li>
-                    <li><a class="menuLink" href="{{ url_for('usuarios') }}">Usuarios</a></li>
+                    <li><a class="menuLink" href="{{ url_for('createUser') }}">Usuarios</a></li>
                     <li><a class="menuLink" href="{{ url_for('requestView') }}">Solicitudes</a></li>
                     <li><a class="menuLink" href="{{ url_for('login') }}" onclick="logOut()">Cerrar sesión</a></li>
                 </ul>
             </div>
     </header>
 
-    <div>
-
-        <section id="feature" class="feature">
-
-            <div class="feature__content container container--pall">
-
-                <div class="feature__intro">
-                    <h2>
-
-                        <p>Bienvenido</p>
-
-                    </h2>
-                </div>
-
-                <div class="feature__grid">
-
-                    <div class="feature__item">
-                        <div class="feature__icon"><img src="/static/images/categorias.png" height="100px" /></div>
-                        <div class="feature__title">
-                            Crea categorías
-                        </div>
-                        <div class="feature__description">
-                            Crea nuevas categorías para clasificar mejor los resumenes
-                        </div>
-                    </div>
-
-                    <div class="feature__item">
-                        <div class="feature__icon"><img src="/static/images/book.png" height="100px" />
-                        </div>
-                        <div class="feature__title">
-                            Escribe resumenes
-                        </div>
-                        <div class="feature__description">
-                            Elabora los mejores resumenes de los más grandes libros
-                        </div>
-                    </div>
-
-                    <div class="feature__item">
-                        <div class="feature__icon"><img src="/static/images/user.png" height="100px" /></div>
-                        <div class="feature__title">
-                            Administra los usuarios
-                        </div>
-                        <div class="feature__description">
-                            Administra de mejor manera las cuentas de los usuarios de la plataforma
-                        </div>
-                    </div>
-                    <div class="feature__item">
-                        <div class="feature__icon"><img src="/static/images/expertCuration.png" height="100px" /></div>
-                        <div class="feature__title">
-                            Administra las solicitudes
-                        </div>
-                        <div class="feature__description">
-                            Acepta o rechaza solicitudes de nuevos resumenes por parte de los usuarios
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </section>
-
+    <div id="categoriasdiv">
+        <h1>Eliminar Usuario</h1>
+        <hr>
+        <br><br>
+        <form action="{{ url_for('deleteUser') }}" method="post">
+            <label for="id">ID del usuario</label>
+            <input type="number" name="deleteUser" id="deleteUser" placeholder="Inserte el ID">
+            <input id="resumen-button" type="submit" value="Enviar">
+        </form>
+        <br>
+        <a id="resumen-button" href="{{ url_for('createUser') }}">Regresar</a><br><br><br>
     </div>
 
     <footer id="footer" class="footer">
@@ -141,7 +80,7 @@
             <div class="footer__links colh1">
                 <a href="{{ url_for('createCat') }}">Categorías</a>
                 <a href="{{ url_for('createRes') }}">Resumenes</a>
-                <a href="{{ url_for('usuarios') }}">Usuarios</a>
+                <a href="{{ url_for('createUser') }}">Usuarios</a>
                 <a href="{{ url_for('requestView') }}">Solicitudes</a>
             </div>
 
@@ -156,12 +95,8 @@
         </div>
     </footer>
 
-
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
-
-
-
 
 </html>
